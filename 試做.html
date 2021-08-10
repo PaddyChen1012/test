@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        /* All */
+        html,body {padding: 0;margin: 0;overflow: hidden;}
+        *{box-sizing: border-box;padding: 0;margin: 0;}
+        /* Page_1 */
+        .page-container {position: relative;top: 0;transition: all 1000ms ease;touch-action: none;}
+        .tag-box{position: fixed;display: flex;flex-direction: column;top: calc(50% - 120px);left: 0;width: 160px;height: 240px;background-color: #fff;z-index: 1;}
+        .tag-btn{width: 100%;height: 100%;background-color: aqua;transition: all .8s ease .4s;}
+        .active.tag-btn {background-color: cornflowerblue;}
+        .page-item {display: flex;position: relative;justify-content: center;align-items: center;width: 100%;height: 100%;border: 1px solid #ddd;background: #fff;transition: all .8s ease;}
+        .logo-box {position: absolute;width: 20%;top: -50%;left: 0;transition: all .8s ease .4s;opacity: 0;}
+        .video-box{width: 1980px;height: 1080px;position: absolute;overflow: hidden;}
+        .img{width: 100%;padding-bottom: 39.15%;}
+        .link-box{display: flex;width: 100%;padding: 1%;justify-content: center;}
+        .link-btn{width: 13%;padding-bottom: 13%;margin: 0 1%;background-image: url(images/top_icon.png);background-size: cover;}
+        .link-btn:nth-child(1){background-position: 0 center;}
+        .link-btn:nth-child(2){background-position: 34% center;}
+        .link-btn:nth-child(3){background-position: 67% center;}
+        .link-btn:nth-child(4){background-position: 100% center;}
+        .img-box,.download-box{position: absolute;bottom: -50%;width: 30%;transition: all .8s ease .4s;opacity: 0;}
+        .img-box{left: 18%;}
+        .download-box{right: 20%;display: flex;justify-content: flex-end;}
+        .down-btn{width: 190px;height: 64px;background-image: url(images/bt_app.png);}
+        .down-btn:nth-child(1){background-position: 0 center;}
+        .down-btn:nth-child(2){background-position: 100% center;}
+        .active .logo-box {top: 0;opacity: 1;}
+        .active .img-box,.active .download-box{bottom: 5%;opacity: 1;}
+        /* Page_2 */
+        .page{width: 80%;max-width: 1440px;}
+        .bg-danger{transform: translateX(-50%);opacity: 0;transition: all .8s ease .4s;}
+        .bg-success{transform: translateX(50%);opacity: 0;transition: all .8s ease .4s;}
+        .active .bg-danger{transform: translateX(0%);opacity: 1;}
+        .active .bg-success{transform: translateX(0%);opacity: 1;}
+        /* Page_3 */
+        .page-3l:nth-child(1){transform: translateX(-50%);opacity: 0;transition: .8s ease .4s;}
+        .page-3l:nth-child(2){transform: translateX(-50%);opacity: 0;transition: .8s ease .8s;}
+        .active .page-3l:nth-child(1){transform: translateX(0);opacity: 1;}
+        .active .page-3l:nth-child(2){transform: translateX(0);opacity: 1;}
+        .ad-img:nth-child(1){top: 2%;left: 53%;transform: translateX(50%);opacity: 0;transition: .8s ease .4s;}
+        .ad-img:nth-child(2){top: 28.5%;left: 68%;transform: translateX(50%);opacity: 0;transition: .8s ease .8s;}
+        .ad-img:nth-child(3){top: 55%;left: 53%;transform: translateX(50%);opacity: 0;transition: .8s ease 1.2s;}
+        .ad-img:nth-child(4){top: 72%;left: 21%;transform: translateX(50%);opacity: 0;transition: .8s ease 1.6s;}
+        .active .ad-img:nth-child(1){transform: translateX(0);opacity: 1;}
+        .active .ad-img:nth-child(2){transform: translateX(0);opacity: 1;}
+        .active .ad-img:nth-child(3){transform: translateX(0);opacity: 1;}
+        .active .ad-img:nth-child(4){transform: translateX(0);opacity: 1;}
+    </style>
+</head>
+<body>
+    <div class="tag-box">
+        <div href="" data-num="0" class="tag-btn active"></div>
+        <div href="" data-num="1" class="tag-btn"></div>
+        <div href="" data-num="2" class="tag-btn"></div>
+    </div>
+    <div class="page-container" style="top:0;">
+        <div class="page-item active" id="page0">
+            <div class="video-box">
+                <video muted="muted" autoplay="true" width="100%" src="images/top.mp4" loop="loop" data-autoplay=""></video>
+            </div>
+            <div class="logo-box">
+                <img src="images/top_logo.png" class="w-100" alt="">
+                <div class="link-box">
+                    <a href="" class="link-btn"></a>
+                    <a href="" class="link-btn"></a>
+                    <a href="" class="link-btn"></a>
+                    <a href="" class="link-btn"></a>
+                </div>
+            </div>
+            <div class="img-box"><img src="images/top_slogan.png" class="w-100" alt=""></div>
+            <div class="download-box">
+                <a href="" class="down-btn"></a>
+                <a href="" class="down-btn"></a>
+            </div>
+        </div>
+        <div class="page-item" id="page1">
+            <div class="page h-100">
+                <div class="row h-100">
+                    <div class="col-12 col-md-6 h-100 bg-danger"></div>
+                    <div class="col-12 col-md-6 h-100 bg-success"></div>
+                </div>
+            </div>
+        </div>
+        <div class="page-item" id="page2">
+            <div class="page h-100">
+                <div class="row h-100">
+                    <div class="col-12 col-md-6 h-100 d-flex flex-column justify-content-center">
+                        <div class="page-3l"><img class="img-fluid" src="images/inv_w.png" alt=""></div>
+                        <div class="page-3l"><img class="img-fluid" src="images/inv_bt.png" alt=""></div>
+                    </div>
+                    <div class="col-12 col-md-6 h-100">
+                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
+                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
+                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
+                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
+    var container = document.querySelector('.page-container')
+    // 獲取瀏覽器視窗高度
+    var viewHeight = document.documentElement.clientHeight
+    // 獲取滾動的頁數
+    var pageNum = document.querySelectorAll('.page-item').length
+    // 初始化當前位置, 距離原始頂部距離
+    var currentPosition = 0
+    // 設置頁面高度
+    container.style.height = viewHeight + 'px'
+
+    // 向下滾動頁面
+    function goDown () {
+        if (currentPosition > - viewHeight * (pageNum - 1)) {
+            currentPosition = currentPosition - viewHeight
+            container.style.top = currentPosition + 'px'
+        }
+    }
+
+    // 向上滾動頁面
+    function goUp () {
+        if (currentPosition < 0) {
+            currentPosition = currentPosition + viewHeight
+            container.style.top = currentPosition + 'px'
+        }
+    }
+    </script>
+    <script>
+    // 節流函數
+    function throttle (fn, delay) {
+        let baseTime = 0
+        return function () {
+            const currentTime = Date.now()
+            if (baseTime + delay < currentTime) {
+            fn.apply(this, arguments)
+            baseTime = currentTime
+            }
+        }
+    }
+    </script>
+    <script>
+    // 初始鼠標滾動
+    var handlerWheel = throttle(scrollMove, 1000)
+    let changClass = document.querySelector('.page-container')
+    let tagClass = document.querySelector('.tag-box')
+    let thisPage = 0
+    let pageNumber = changClass.children
+    let scrollMax = pageNumber.length - 1
+    let i = 0
+    let tagBtn = document.querySelectorAll('.tag-btn')
+    // https://developer.mozilla.org/en-US/docs/Web/API/Element/mousewheel_event#The_detail_property
+    // firefox的頁面滾動事件其他瀏覽器不一樣
+    if (navigator.userAgent.toLowerCase().indexOf('firefox') === -1) {
+        document.addEventListener('mousewheel', handlerWheel, false)
+    } else {
+        document.addEventListener('DOMMouseScroll', handlerWheel, false)
+    }
+    function scrollMove (e) {
+        nowTop = Math.abs(parseInt(container.style.top))
+        let thisPage = nowTop / viewHeight
+        i = thisPage
+        if (e.deltaY > 0) {
+            goDown();
+            if (i < scrollMax) {
+                changClass.children[thisPage].classList.remove('active');
+                tagClass.children[thisPage].classList.remove('active');
+                thisPage ++;
+                changClass.children[thisPage].classList.add('active');
+                tagClass.children[thisPage].classList.add('active');
+                i++
+            } else {
+                return
+            }
+        } else {
+            goUp()
+            if (i > 0) {
+                changClass.children[thisPage].classList.remove('active');
+                tagClass.children[thisPage].classList.remove('active');
+                thisPage --;
+                changClass.children[thisPage].classList.add('active');
+                tagClass.children[thisPage].classList.add('active');
+                i--
+            } else {
+                return
+            }
+        }
+    } 
+    
+    for(j=0;j<3;j++){
+        let btnNum = tagBtn[j].dataset.num;
+        tagBtn[j].addEventListener('click',function(i){
+            for(k=0;k<3;k++){
+                tagClass.children[k].classList.remove('active')
+                changClass.children[k].classList.remove('active')
+            }
+            currentPosition = - btnNum*viewHeight
+            container.style.top =currentPosition + 'px'
+            changClass.children[btnNum].classList.add('active')
+            tagClass.children[btnNum].classList.add('active')
+        },false)
+    }
+    
+    </script>
+    <script>
+    // 處理移動端滑動
+    var touchStartY = 0
+    document.addEventListener('touchstart', event => {
+        touchStartY = event.touches[0].pageY
+    })
+    var handleTouchEnd = throttle(touchEnd, 500)
+    document.addEventListener('touchend', handleTouchEnd)
+    function touchEnd (e) {
+        var touchEndY = e.changedTouches[0].pageY
+        if (touchEndY - touchStartY < 0) { // 向上滑動, 頁面向下滾動
+            goDown();
+        } else {
+            goUp();
+        }
+    }
+    </script>
+    <script>
+    
+    </script>
+
+</body>
+</html>
