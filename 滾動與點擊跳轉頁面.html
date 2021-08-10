@@ -166,6 +166,7 @@
         document.addEventListener('DOMMouseScroll', handlerWheel, false)
     }
     function scrollMove (e) {
+        // 用頁面移動距離換算成目前的頁面
         nowTop = Math.abs(parseInt(container.style.top))
         let thisPage = nowTop / viewHeight
         i = thisPage
@@ -196,10 +197,10 @@
         }
     } 
     
-    for(j=0;j<3;j++){
+    for(j=0;j<pageNumber.length;j++){
         let btnNum = tagBtn[j].dataset.num;
         tagBtn[j].addEventListener('click',function(i){
-            for(k=0;k<3;k++){
+            for(k=0;k<pageNumber.length;k++){
                 tagClass.children[k].classList.remove('active')
                 changClass.children[k].classList.remove('active')
             }
