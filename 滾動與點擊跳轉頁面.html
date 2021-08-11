@@ -10,10 +10,25 @@
         /* All */
         html,body {padding: 0;margin: 0;overflow: hidden;}
         *{box-sizing: border-box;padding: 0;margin: 0;}
+        .page-item:nth-child(2){background: url(images/bg_01.jpg);}
+        .page-item:nth-child(3){background: url(images/bg_02.jpg);}
+        .page-item:nth-child(4){background: url(images/bg_03.jpg);}
+        .page-item:nth-child(5){background: url(images/bg_04.jpg);}
+        
+        /* 濃霧出現效果 */
+        .active.tag-btn, .active.page-item {
+            -webkit-mask: url(../images/masky.png);
+            -webkit-mask-size: 3000% 100%;
+            -webkit-mask-position: 0 0;
+            -webkit-animation: mask .8s steps(24) forwards;
+            -webkit-animation-delay: .4s;
+        }
+        @keyframes mask{from{-webkit-mask-position:0 0}to{-webkit-mask-position:100% 0}}
+
         /* Page_1 */
         .page-container {position: relative;top: 0;transition: all 1000ms ease;touch-action: none;}
-        .tag-box{position: fixed;display: flex;flex-direction: column;top: calc(50% - 120px);left: 2%;width: 160px;height: 240px;background-color: #fff;z-index: 1;}
-        .tag-btn{width: 100%;height: 100%;background-color: aqua;cursor: pointer;transition: all .8s ease;}
+        .tag-box{position: fixed;display: flex;flex-direction: column;top: calc(50% - 120px);left: 2%;width: 160px;height: 240px;z-index: 1;}
+        .tag-btn{width: 100%;height: 100%;cursor: pointer;transition: all .8s ease;}
         .active.tag-btn {background-color: cornflowerblue;}
         .page-item {display: flex;position: relative;justify-content: center;align-items: center;width: 100%;height: 100%;border: 1px solid #ddd;background: #fff;transition: all .8s ease;}
         .logo-box {position: absolute;width: 20%;top: -50%;left: 0;transition: all .8s ease .8s;opacity: 0;}
@@ -61,6 +76,8 @@
         .active .img-cricle{animation: flip 1s ease 1.6s both;}
         .img-btn{position: absolute;top: 82%;left: 63%;width: 25%;transform: translateX(150%);opacity: 0;transition: all .8s ease 1.2s;}
         .active .img-btn{transform: translateX(0);opacity: 1;}
+        
+        /* 硬幣轉動效果 */
         @keyframes flip{
             0%{
                 -webkit-transform: perspective(400px) scaleX(1) translateZ(0) rotateY(-1turn);
@@ -103,11 +120,11 @@
 </head>
 <body>
     <div class="tag-box">
-        <div data-num="0" class="tag-btn active"></div>
-        <div data-num="1" class="tag-btn"></div>
-        <div data-num="2" class="tag-btn"></div>
-        <div data-num="3" class="tag-btn"></div>
-        <div data-num="4" class="tag-btn"></div>
+        <div data-num="0" class="d-flex align-items-center justify-content-center text-light font-weight-bolder tag-btn active">頁面測試</div>
+        <div data-num="1" class="d-flex align-items-center justify-content-center text-light font-weight-bolder tag-btn">頁面測試</div>
+        <div data-num="2" class="d-flex align-items-center justify-content-center text-light font-weight-bolder tag-btn">頁面測試</div>
+        <div data-num="3" class="d-flex align-items-center justify-content-center text-light font-weight-bolder tag-btn">頁面測試</div>
+        <div data-num="4" class="d-flex align-items-center justify-content-center text-light font-weight-bolder tag-btn">頁面測試</div>
     </div>
     <div class="page-container" style="top:0;">
         <div class="page-item active" id="page0">
@@ -172,7 +189,7 @@
                 <div class="row position-relative h-100 justify-content-center">
                     <div class="col-8 note-title text-center mb-2"><img src="images/note_w.png" class="img-fluid" alt=""></div>
                     <div class="col-8 note-word">
-                        <ul class="page4_ul">
+                        <ul class="page4_ul text-light">
                             <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis, consequuntur perspiciatis quia harum ducimus illum nemo minus ipsam magni?</li>
                             <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam exercitationem ducimus delectus ratione inventore tempore?</li>
                             <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ullam esse repudiandae velit fugiat ea, repellat atque consequuntur. Doloremque molestias consectetur libero sed dolores eveniet quasi asperiores ipsum. Velit dicta laudantium provident quae beatae libero eaque illo ut molestiae, odio nostrum tenetur! Magni voluptates ullam repudiandae quasi amet, aspernatur doloribus.</li>
