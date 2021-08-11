@@ -12,53 +12,100 @@
         *{box-sizing: border-box;padding: 0;margin: 0;}
         /* Page_1 */
         .page-container {position: relative;top: 0;transition: all 1000ms ease;touch-action: none;}
-        .tag-box{position: fixed;display: flex;flex-direction: column;top: calc(50% - 120px);left: 0;width: 160px;height: 240px;background-color: #fff;z-index: 1;}
-        .tag-btn{width: 100%;height: 100%;background-color: aqua;transition: all .8s ease .4s;}
+        .tag-box{position: fixed;display: flex;flex-direction: column;top: calc(50% - 120px);left: 2%;width: 160px;height: 240px;background-color: #fff;z-index: 1;}
+        .tag-btn{width: 100%;height: 100%;background-color: aqua;cursor: pointer;transition: all .8s ease .8s;}
         .active.tag-btn {background-color: cornflowerblue;}
         .page-item {display: flex;position: relative;justify-content: center;align-items: center;width: 100%;height: 100%;border: 1px solid #ddd;background: #fff;transition: all .8s ease;}
-        .logo-box {position: absolute;width: 20%;top: -50%;left: 0;transition: all .8s ease .4s;opacity: 0;}
+        .logo-box {position: absolute;width: 20%;top: -50%;left: 0;transition: all .8s ease .8s;opacity: 0;}
         .video-box{width: 1980px;height: 1080px;position: absolute;overflow: hidden;}
         .img{width: 100%;padding-bottom: 39.15%;}
         .link-box{display: flex;width: 100%;padding: 1%;justify-content: center;}
         .link-btn{width: 13%;padding-bottom: 13%;margin: 0 1%;background-image: url(images/top_icon.png);background-size: cover;}
         .link-btn:nth-child(1){background-position: 0 center;}
         .link-btn:nth-child(2){background-position: 34% center;}
-        .link-btn:nth-child(3){background-position: 67% center;}
+        .link-btn:nth-child(3){background-position: 67% center;}z
         .link-btn:nth-child(4){background-position: 100% center;}
-        .img-box,.download-box{position: absolute;bottom: -50%;width: 30%;transition: all .8s ease .4s;opacity: 0;}
-        .img-box{left: 18%;}
-        .download-box{right: 20%;display: flex;justify-content: flex-end;}
-        .down-btn{width: 190px;height: 64px;background-image: url(images/bt_app.png);}
+        .img-box,.download-box{position: absolute;bottom: -50%;width: 30%;transition: all .8s ease;opacity: 0;}
+        .img-box{left: 18%;transition-delay: .8s;}
+        .download-box{right: 20%;display: flex;justify-content: flex-end;transition-delay: 1.2s;}
+        .down-btn{width: 190px;height: 64px;background-image: url(images/bt_app.png);}z
         .down-btn:nth-child(1){background-position: 0 center;}
         .down-btn:nth-child(2){background-position: 100% center;}
         .active .logo-box {top: 0;opacity: 1;}
         .active .img-box,.active .download-box{bottom: 5%;opacity: 1;}
         /* Page_2 */
         .page{width: 80%;max-width: 1440px;}
-        .bg-danger{transform: translateX(-50%);opacity: 0;transition: all .8s ease .4s;}
-        .bg-success{transform: translateX(50%);opacity: 0;transition: all .8s ease .4s;}
-        .active .bg-danger{transform: translateX(0%);opacity: 1;}
-        .active .bg-success{transform: translateX(0%);opacity: 1;}
+        .page-word{transform: translateX(-50%);opacity: 0;transition: all .8s ease .8s;}
+        .page-img{transform: translateX(50%);opacity: 0;transition: all .8s ease .8s;}
+        .active .page-word{transform: translateX(0%);opacity: 1;}
+        .active .page-img{transform: translateX(0%);opacity: 1;}
         /* Page_3 */
-        .page-3l:nth-child(1){transform: translateX(-50%);opacity: 0;transition: .8s ease .4s;}
-        .page-3l:nth-child(2){transform: translateX(-50%);opacity: 0;transition: .8s ease .8s;}
+        .page-3l:nth-child(1){transform: translateX(-50%);opacity: 0;transition: .8s ease .8s;}
+        .page-3l:nth-child(2){transform: translateX(-50%);opacity: 0;transition: .8s ease 1.2s;}
         .active .page-3l:nth-child(1){transform: translateX(0);opacity: 1;}
         .active .page-3l:nth-child(2){transform: translateX(0);opacity: 1;}
-        .ad-img:nth-child(1){top: 2%;left: 53%;transform: translateX(50%);opacity: 0;transition: .8s ease .4s;}
-        .ad-img:nth-child(2){top: 28.5%;left: 68%;transform: translateX(50%);opacity: 0;transition: .8s ease .8s;}
-        .ad-img:nth-child(3){top: 55%;left: 53%;transform: translateX(50%);opacity: 0;transition: .8s ease 1.2s;}
-        .ad-img:nth-child(4){top: 72%;left: 21%;transform: translateX(50%);opacity: 0;transition: .8s ease 1.6s;}
+        .ad-img:nth-child(1){top: 2%;left: 53%;transform: translateX(50%);opacity: 0;transition: .8s ease .8s;}
+        .ad-img:nth-child(2){top: 28.5%;left: 68%;transform: translateX(50%);opacity: 0;transition: .8s ease 1.2s;}
+        .ad-img:nth-child(3){top: 55%;left: 53%;transform: translateX(50%);opacity: 0;transition: .8s ease 1.6s;}
+        .ad-img:nth-child(4){top: 72%;left: 21%;transform: translateX(50%);opacity: 0;transition: .8s ease 2s;}
         .active .ad-img:nth-child(1){transform: translateX(0);opacity: 1;}
         .active .ad-img:nth-child(2){transform: translateX(0);opacity: 1;}
         .active .ad-img:nth-child(3){transform: translateX(0);opacity: 1;}
         .active .ad-img:nth-child(4){transform: translateX(0);opacity: 1;}
+        /* Page_4 */
+        .lot-word{transform: translateY(-100%);opacity: 0;transition: all .8s ease .8s;}
+        .active .lot-word{transform: translateY(0);opacity: 1;}
+        .img-cricle{position: absolute;top: 37.8%;left: 38.6%;width: 23%;}
+        .active .img-cricle{animation: flip 1s ease .8s both;}
+        .img-btn{position: absolute;top: 82%;left: 63%;width: 25%;transform: translateX(150%);opacity: 0;transition: all .8s ease 1.2s;}
+        .active .img-btn{transform: translateX(0);opacity: 1;}
+        @keyframes flip{
+            0%{
+                -webkit-transform: perspective(400px) scaleX(1) translateZ(0) rotateY(-1turn);
+                transform: perspective(400px) scaleX(1) translateZ(0) rotateY(-1turn);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            }
+            40%{
+                -webkit-transform: perspective(400px) scaleX(1) translateZ(150px) rotateY(-190deg);
+                transform: perspective(400px) scaleX(1) translateZ(150px) rotateY(-190deg);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            }
+            50%{
+                -webkit-transform: perspective(400px) scaleX(1) translateZ(150px) rotateY(-170deg);
+                transform: perspective(400px) scaleX(1) translateZ(150px) rotateY(-170deg);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+            80%{
+                -webkit-transform: perspective(400px) scale3d(.95,.95,.95) translateZ(0) rotateY(0deg);
+                transform: perspective(400px) scale3d(.95,.95,.95) translateZ(0) rotateY(0deg);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+            100%{
+                -webkit-transform: perspective(400px) scaleX(1) translateZ(0) rotateY(0deg);
+                transform: perspective(400px) scaleX(1) translateZ(0) rotateY(0deg);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+        }
+        /* Page5 */
+        .page4_ul{list-style-type: decimal;font-size: 1.25rem;}
+        .note-title{transform: translatey(-150%);opacity: 0;transition: all .8s ease .8s;}
+        .active .note-title{transform: translateY(0);opacity: 1;}
+        .note-word{transform: translatey(150%);opacity: 0;transition: all .8s ease .8s;}
+        .active .note-word{transform: translateY(0);opacity: 1;}
     </style>
 </head>
 <body>
     <div class="tag-box">
-        <div href="" data-num="0" class="tag-btn active"></div>
-        <div href="" data-num="1" class="tag-btn"></div>
-        <div href="" data-num="2" class="tag-btn"></div>
+        <div data-num="0" class="tag-btn active"></div>
+        <div data-num="1" class="tag-btn"></div>
+        <div data-num="2" class="tag-btn"></div>
+        <div data-num="3" class="tag-btn"></div>
+        <div data-num="4" class="tag-btn"></div>
     </div>
     <div class="page-container" style="top:0;">
         <div class="page-item active" id="page0">
@@ -80,11 +127,13 @@
                 <a href="" class="down-btn"></a>
             </div>
         </div>
-        <div class="page-item" id="page1">
+        <div class="page-item bg-dark" id="page1">
             <div class="page h-100">
-                <div class="row h-100">
-                    <div class="col-12 col-md-6 h-100 bg-danger"></div>
-                    <div class="col-12 col-md-6 h-100 bg-success"></div>
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 col-md-6 page-word">
+                        <img src="images/res_w.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-12 col-md-6 page-img"><img src="images/res_img.png" class="img-fluid" alt=""></div>
                 </div>
             </div>
         </div>
@@ -100,6 +149,38 @@
                         <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
                         <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
                         <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-item" id="page3">
+            <div class="page h-100 py-3">
+                <div class="row position-relative h-100">
+                    <div class="col-12 col-md-6 position-absolute text-center"><img src="images/lot_w.png" class="img-fluid lot-word" alt=""></div>
+                    <div class="col-12 col-md-7 ml-auto my-auto text-center">
+                        <img src="images/lot_gift.png" class="img-fluid" alt="">
+                        <img src="images/lot_bt.png" class="img-cricle" alt="">
+                        <img src="images/lot_record.png" class="img-btn" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-item" id="page4">
+            <div class="page h-100 py-5">
+                <div class="row position-relative h-100 justify-content-center">
+                    <div class="col-8 note-title text-center mb-2"><img src="images/note_w.png" class="img-fluid" alt=""></div>
+                    <div class="col-8 note-word">
+                        <ul class="page4_ul">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis, consequuntur perspiciatis quia harum ducimus illum nemo minus ipsam magni?</li>
+                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam exercitationem ducimus delectus ratione inventore tempore?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ullam esse repudiandae velit fugiat ea, repellat atque consequuntur. Doloremque molestias consectetur libero sed dolores eveniet quasi asperiores ipsum. Velit dicta laudantium provident quae beatae libero eaque illo ut molestiae, odio nostrum tenetur! Magni voluptates ullam repudiandae quasi amet, aspernatur doloribus.</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis, consequuntur perspiciatis quia harum ducimus illum nemo minus ipsam magni?</li>
+                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam exercitationem ducimus delectus ratione inventore tempore?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis, consequuntur perspiciatis quia harum ducimus illum nemo minus ipsam magni?</li>
+                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam exercitationem ducimus delectus ratione inventore tempore?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis, consequuntur perspiciatis quia harum ducimus illum nemo minus ipsam magni?</li>
+                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam exercitationem ducimus delectus ratione inventore tempore?</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -228,10 +309,6 @@
             goUp();
         }
     }
-    </script>
-    <script>
-    
-    </script>
-
+    </script>    
 </body>
 </html>
