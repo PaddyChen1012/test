@@ -13,7 +13,7 @@
         /* Page_1 */
         .page-container {position: relative;top: 0;transition: all 1000ms ease;touch-action: none;}
         .tag-box{position: fixed;display: flex;flex-direction: column;top: calc(50% - 120px);left: 2%;width: 160px;height: 240px;background-color: #fff;z-index: 1;}
-        .tag-btn{width: 100%;height: 100%;background-color: aqua;cursor: pointer;transition: all .8s ease .8s;}
+        .tag-btn{width: 100%;height: 100%;background-color: aqua;cursor: pointer;transition: all .8s ease;}
         .active.tag-btn {background-color: cornflowerblue;}
         .page-item {display: flex;position: relative;justify-content: center;align-items: center;width: 100%;height: 100%;border: 1px solid #ddd;background: #fff;transition: all .8s ease;}
         .logo-box {position: absolute;width: 20%;top: -50%;left: 0;transition: all .8s ease .8s;opacity: 0;}
@@ -53,10 +53,12 @@
         .active .ad-img:nth-child(3){transform: translateX(0);opacity: 1;}
         .active .ad-img:nth-child(4){transform: translateX(0);opacity: 1;}
         /* Page_4 */
-        .lot-word{transform: translateY(-100%);opacity: 0;transition: all .8s ease .8s;}
+        .lot-word{transform: translateY(-50%);opacity: 0;transition: all .6s ease .8s;}
         .active .lot-word{transform: translateY(0);opacity: 1;}
+        .img-warp{transform: translateX(-150%);opacity: 0;transition: all .8s ease .8s;}
+        .active .img-warp{transform: translateX(0);opacity: 1;}
         .img-cricle{position: absolute;top: 37.8%;left: 38.6%;width: 23%;}
-        .active .img-cricle{animation: flip 1s ease .8s both;}
+        .active .img-cricle{animation: flip 1s ease 1.6s both;}
         .img-btn{position: absolute;top: 82%;left: 63%;width: 25%;transform: translateX(150%);opacity: 0;transition: all .8s ease 1.2s;}
         .active .img-btn{transform: translateX(0);opacity: 1;}
         @keyframes flip{
@@ -142,7 +144,7 @@
                 <div class="row h-100">
                     <div class="col-12 col-md-6 h-100 d-flex flex-column justify-content-center">
                         <div class="page-3l"><img class="img-fluid" src="images/inv_w.png" alt=""></div>
-                        <div class="page-3l"><img class="img-fluid" src="images/inv_bt.png" alt=""></div>
+                        <div class="page-3l"><a href=""><img class="img-fluid" src="images/inv_bt.png" alt=""></a></div>
                     </div>
                     <div class="col-12 col-md-6 h-100">
                         <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
@@ -157,10 +159,10 @@
             <div class="page h-100 py-3">
                 <div class="row position-relative h-100">
                     <div class="col-12 col-md-6 position-absolute text-center"><img src="images/lot_w.png" class="img-fluid lot-word" alt=""></div>
-                    <div class="col-12 col-md-7 ml-auto my-auto text-center">
+                    <div class="col-12 col-md-7 ml-auto my-auto text-center img-warp">
                         <img src="images/lot_gift.png" class="img-fluid" alt="">
                         <img src="images/lot_bt.png" class="img-cricle" alt="">
-                        <img src="images/lot_record.png" class="img-btn" alt="">
+                        <a href=""><img src="images/lot_record.png" class="img-btn" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -278,6 +280,7 @@
         }
     } 
     
+    // 點擊跳轉並加入class
     for(j=0;j<pageNumber.length;j++){
         let btnNum = tagBtn[j].dataset.num;
         tagBtn[j].addEventListener('click',function(i){
