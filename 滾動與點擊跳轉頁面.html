@@ -38,12 +38,12 @@
         .link-btn{width: 13%;padding-bottom: 13%;margin: 0 1%;background-image: url(images/top_icon.png);background-size: cover;}
         .link-btn:nth-child(1){background-position: 0 center;}
         .link-btn:nth-child(2){background-position: 34% center;}
-        .link-btn:nth-child(3){background-position: 67% center;}z
+        .link-btn:nth-child(3){background-position: 67% center;}
         .link-btn:nth-child(4){background-position: 100% center;}
         .img-box,.download-box{position: absolute;bottom: -50%;width: 30%;transition: all .8s ease;opacity: 0;}
         .img-box{left: 18%;transition-delay: .8s;}
-        .download-box{right: 20%;display: flex;justify-content: flex-end;transition-delay: 1.2s;}
-        .down-btn{width: 190px;height: 64px;background-image: url(images/bt_app.png);}z
+        .download-box{right: 20%;display: flex;justify-content: space-between;transition-delay: 1.2s;width: 20%;}
+        .down-btn{width: 48%;padding-bottom: 16%;background: url(images/bt_app.png);background-repeat: no-repeat;background-size: cover;}
         .down-btn:nth-child(1){background-position: 0 center;}
         .down-btn:nth-child(2){background-position: 100% center;}
         .active .logo-box {top: 0;opacity: 1;}
@@ -55,10 +55,12 @@
         .active .page-word{transform: translateX(0%);opacity: 1;}
         .active .page-img{transform: translateX(0%);opacity: 1;}
         /* Page_3 */
+        .page-3l{width: 42%;}
         .page-3l:nth-child(1){transform: translateX(-50%);opacity: 0;transition: .8s ease .8s;}
         .page-3l:nth-child(2){transform: translateX(-50%);opacity: 0;transition: .8s ease 1.2s;}
         .active .page-3l:nth-child(1){transform: translateX(0);opacity: 1;}
         .active .page-3l:nth-child(2){transform: translateX(0);opacity: 1;}
+        .ad-img{width: 32%;}
         .ad-img:nth-child(1){top: 2%;left: 53%;transform: translateX(50%);opacity: 0;transition: .8s ease .8s;}
         .ad-img:nth-child(2){top: 28.5%;left: 68%;transform: translateX(50%);opacity: 0;transition: .8s ease 1.2s;}
         .ad-img:nth-child(3){top: 55%;left: 53%;transform: translateX(50%);opacity: 0;transition: .8s ease 1.6s;}
@@ -72,9 +74,10 @@
         .active .lot-word{transform: translateY(0);opacity: 1;}
         .img-warp{transform: translateX(-150%);opacity: 0;transition: all .8s ease .8s;}
         .active .img-warp{transform: translateX(0);opacity: 1;}
-        .img-cricle{position: absolute;top: 37.8%;left: 38.6%;width: 23%;}
+        .img-w{width: 50%;height: auto;}
+        .img-cricle{position: absolute;top: 38%;left: 68%;width: 13%;}
         .active .img-cricle{animation: flip 1s ease 1.6s both;}
-        .img-btn{position: absolute;top: 82%;left: 63%;width: 25%;transform: translateX(150%);opacity: 0;transition: all .8s ease 1.2s;}
+        .img-btn{position: absolute;top: 82%;left: 82%;width: 15%;transform: translateX(150%);opacity: 0;transition: all .8s ease 1.2s;}
         .active .img-btn{transform: translateX(0);opacity: 1;}
         
         /* 硬幣轉動效果 */
@@ -116,6 +119,19 @@
         .active .note-title{transform: translateY(0);opacity: 1;}
         .note-word{transform: translatey(150%);opacity: 0;transition: all .8s ease .8s;}
         .active .note-word{transform: translateY(0);opacity: 1;}
+
+        @media screen and (max-width:500px) {
+            .tag-box{display: none;}
+            .logo-box img{display: none;}
+            .link-box{flex-direction: column;}
+            .link-btn{width: 50%;padding-bottom: 50%;margin: 2% 0;}
+            .img-box, .download-box{width: 90%;left: 5%;right: 5%;}
+            .active .img-box{bottom: 15%;}
+            .img-w{width: 100%;height: auto;}
+            .img-cricle{position: absolute;top: 38%;left: 38%;width: 24%;}
+            .img-btn {top: 100%;left: 15%;width: 70%;}
+            .page-3l {width: 100%;}
+            .ad-img {width: 100%;position: relative !important;top: 0 !important;left: 0 !important;}
     </style>
 </head>
 <body>
@@ -159,15 +175,15 @@
         <div class="page-item" id="page2">
             <div class="page h-100">
                 <div class="row h-100">
-                    <div class="col-12 col-md-6 h-100 d-flex flex-column justify-content-center">
+                    <div class="col-6 col-md-6 h-100 d-flex flex-column justify-content-center">
                         <div class="page-3l"><img class="img-fluid" src="images/inv_w.png" alt=""></div>
                         <div class="page-3l"><a href=""><img class="img-fluid" src="images/inv_bt.png" alt=""></a></div>
                     </div>
-                    <div class="col-12 col-md-6 h-100">
-                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
-                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
-                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
-                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" alt=""></div>
+                    <div class="col-6 col-md-6 h-100">
+                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" class="w-100" alt=""></div>
+                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" class="w-100" alt=""></div>
+                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" class="w-100" alt=""></div>
+                        <div class="position-absolute ad-img"><img src="images/inv_img01.png" class="w-100" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -176,8 +192,8 @@
             <div class="page h-100 py-3">
                 <div class="row position-relative h-100">
                     <div class="col-12 col-md-6 position-absolute text-center"><img src="images/lot_w.png" class="img-fluid lot-word" alt=""></div>
-                    <div class="col-12 col-md-7 ml-auto my-auto text-center img-warp">
-                        <img src="images/lot_gift.png" class="img-fluid" alt="">
+                    <div class="col-12 ml-auto my-auto text-right img-warp">
+                        <img src="images/lot_gift.png" class="img-w" alt="">
                         <img src="images/lot_bt.png" class="img-cricle" alt="">
                         <a href=""><img src="images/lot_record.png" class="img-btn" alt=""></a>
                     </div>
@@ -198,7 +214,6 @@
                             <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis, consequuntur perspiciatis quia harum ducimus illum nemo minus ipsam magni?</li>
                             <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam exercitationem ducimus delectus ratione inventore tempore?</li>
                             <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis, consequuntur perspiciatis quia harum ducimus illum nemo minus ipsam magni?</li>
-                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam exercitationem ducimus delectus ratione inventore tempore?</li>
                         </ul>
                     </div>
                 </div>
