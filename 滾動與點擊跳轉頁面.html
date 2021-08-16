@@ -350,18 +350,18 @@
             window.location.reload();
         }
         // 載入完成後延遲執行
-        document.onreadystatechange = subSomething;
-        function delay(n){
-            return new Promise(function(resolve){
-                setTimeout(resolve,n*1000);
-            });
-        }
-        async function subSomething(){
-            if(document.readyState == "complete"){
-                await delay(1);
-                document.querySelector('#loading-page').style.display = 'none'
-            }
-        }
+        // document.onreadystatechange = subSomething;
+        // function delay(n){
+        //     return new Promise(function(resolve){
+        //         setTimeout(resolve,n*1000);
+        //     });
+        // }
+        // async function subSomething(){
+        //     if(document.readyState == "complete"){
+        //         await delay(1);
+        //         document.querySelector('#loading-page').style.display = 'none'
+        //     }
+        // }
     </script>    
 </body>
 </html>
