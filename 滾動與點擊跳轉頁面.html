@@ -147,7 +147,10 @@
     <div class="page-container" style="top:0;">
         <div class="page-item active" id="page0">
             <div class="video-box">
-                <video muted="muted" autoplay="true" width="100%" src="images/top.mp4" loop="loop" data-autoplay=""></video>
+                <!-- <video muted="muted" autoplay="true" width="100%" src="images/top.mp4" loop="loop" poster="" data-autoplay=""></video> -->
+                <video loop muted autoplay playsinline width="100%">
+                    <source src="images/top.mp4" type="video/mp4">
+                </video>
             </div>
             <div class="logo-box">
                 <img src="images/top_logo.png" class="w-100" alt="">
