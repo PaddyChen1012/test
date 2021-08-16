@@ -135,7 +135,7 @@
         }
     </style>
 </head>
-<body oncontextmenu="return false">
+<body>
     <!-- <div id="loading-page" class="justify-content-center align-items-center text-light" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;display:flex;background-color: #000;z-index: 3;">加載中...</div> -->
     <div class="tag-box">
         <div data-num="0" class="d-flex align-items-center justify-content-center text-light font-weight-bolder tag-btn active">頁面測試</div>
@@ -311,7 +311,6 @@
             }
         }
     } 
-    
     // 點擊跳轉並加入class
     for(j=0;j<pageNumber.length;j++){
         let btnNum = tagBtn[j].dataset.num;
@@ -339,8 +338,25 @@
         var touchEndY = e.changedTouches[0].pageY
         if (touchEndY - touchStartY < 0) { // 向上滑動, 頁面向下滾動
             goDown();
-        } else {
+            if (i < scrollMax) {
+                changClass.children[thisPage].classList.remove('active')
+                thisPage ++
+                changClass.children[thisPage].classList.add('active')
+                i ++
+            }else{
+                return
+            }
+        } 
+        else {
             goUp();
+            if (i > 0) {
+                changClass.children[thisPage].classList.remove('active')
+                thisPage --
+                changClass.children[thisPage].classList.add('active')
+                i --
+            }else{
+                return
+            }
         }
     }
     </script>
