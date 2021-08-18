@@ -5,17 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/scroll_all.css">
+    <link rel="stylesheet" href="css/paddy.css">
+    <link rel="stylesheet" href="css/3D_custom.css">
 </head>
 <body>
+    <div class="tag-box">
+        <div data-num="0" class="d-flex align-items-center justify-content-center text-light font-weight-bolder tag-btn active">頁面測試</div>
+        <div data-num="1" class="d-flex align-items-center justify-content-center text-light font-weight-bolder tag-btn">頁面測試</div>
+        <div data-num="2" class="d-flex align-items-center justify-content-center text-light font-weight-bolder tag-btn">頁面測試</div>
+        <div data-num="3" class="d-flex align-items-center justify-content-center text-light font-weight-bolder tag-btn">頁面測試</div>
+    </div>
     <div class="page-container" style="top:0;">
-        <div class="page-item active"></div>
-        <div class="page-item"></div>
-        <div class="page-item"></div>
-        <div class="page-item"></div>
+        <div id="page0" class="page-item">
+            <div class="drop-shadow">
+                <div class="glass"></div>
+                <span>GLASS</span>
+            </div>
+        </div>
+        <div id="page1" class="page-item">
+            <div id="drag-container" class="drag-container">
+                <div id="spin-container" class="spin-container">
+                    <!-- Add your images (or video) here -->
+                    <img src="images/自做/輪播1.jpeg" alt="">
+                    <img src="images/自做/輪播2.jpeg" alt="">
+                    <img src="images/自做/輪播3.jpeg" alt="">
+                    <img src="images/自做/輪播1.jpeg" alt="">
+                    <img src="images/自做/輪播2.jpeg" alt="">
+                    <img src="images/自做/輪播3.jpeg" alt="">
+                    <div id="ground" class="ground"></div>
+                </div>
+            </div>
+        </div>
+        <div id="page2" class="page-item"></div>
+        <div id="page3" class="page-item"></div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="js/scroll_page.js"></script>
+    <script src="js/3D_custom.js"></script>
 </body>
 </html>

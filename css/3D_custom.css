@@ -22,7 +22,7 @@ background: #111;
         transform-style: preserve-3d;
 }
 
-#drag-container, #spin-container {
+.drag-container, .spin-container {
 position: relative;
 display: -webkit-box;
 display: -ms-flexbox;
@@ -34,12 +34,12 @@ margin: auto;
         transform: rotateX(-10deg);
 }
 
-#spin-container {
+.spin-container {
 min-width: 120px;
 min-height: 170px;
 }
 
-#drag-container img, #drag-container video {
+.drag-container img, .drag-container video {
 -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
 position: absolute;
@@ -55,13 +55,13 @@ text-align: center;
 -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
 }
 
-#drag-container img:hover, #drag-container video:hover {
+.drag-container img:hover, .drag-container video:hover {
 -webkit-box-shadow: 0 0 15px #fffd;
         box-shadow: 0 0 15px #fffd;
 -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
 }
 
-#drag-container p {
+.drag-container p {
 font-family: Serif;
 position: absolute;
 top: 100%;
@@ -89,39 +89,39 @@ left: 0;
 }
 
 @-webkit-keyframes spin {
-from{
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-} to{
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-}
+        from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        } to{
+        -webkit-transform: rotateY(360deg);
+                transform: rotateY(360deg);
+        }
 }
 
 @keyframes spin {
-from{
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-} to{
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
+        from{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        } to{
+        -webkit-transform: rotateY(360deg);
+                transform: rotateY(360deg);
 }
 }
 @-webkit-keyframes spinRevert {
-from{
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-} to{
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-}
+        from{
+        -webkit-transform: rotateY(360deg);
+                transform: rotateY(360deg);
+        } to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        }
 }
 @keyframes spinRevert {
-from{
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-} to{
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-}
+        from{
+        -webkit-transform: rotateY(360deg);
+                transform: rotateY(360deg);
+        } to{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        }
 }
