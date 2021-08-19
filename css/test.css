@@ -1,0 +1,27 @@
+div {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #fff, #000);
+}
+@property --houdini-colorA {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #fff;
+}
+@property --houdini-colorB {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #000;
+}
+.property {
+    background: linear-gradient(45deg, var(--houdini-colorA), var(--houdini-colorB));
+    transition: 1s --houdini-colorA, 1s --houdini-colorB;
+    
+    &:hover {
+        --houdini-colorA: yellowgreen;
+        --houdini-colorB: #000;
+    }
+}
+@property --roate{
+
+}

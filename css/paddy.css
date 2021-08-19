@@ -74,18 +74,10 @@ body,html {
     }
 }
 
-
-@property --rotate {
-syntax: '<angle>';
-initial-value: 132deg;
-inherits: false;
-}
-
 :root {
---card-height: 65vh;
+--card-height: 50vh;
 --card-width: calc(var(--card-height) / 1.5);
 }
-
 .card {
 background: #191c29;
 width: var(--card-width);
@@ -101,7 +93,6 @@ font-size: 1.5em;
 color: rgb(88 199 250 / 0%);
 cursor: pointer;
 }
-
 .card:hover {
 color: rgb(88 199 250 / 100%);
 transition: color 1s;
@@ -110,7 +101,6 @@ transition: color 1s;
 animation: none;
 opacity: 0;
 }
-
 .card::before {
 content: "";
 width: 104%;
@@ -125,7 +115,6 @@ background-image: linear-gradient(
     left: -2%;
     animation: spin 2.5s linear infinite;
 }
-
 .card::after {
 position: absolute;
 content: "";
@@ -145,14 +134,18 @@ background-image: linear-gradient(
 transition: opacity .5s;
 animation: spin 2.5s linear infinite;
 }
-
-@keyframes spin {
-0% {
-    --rotate: 0deg;
+.img-box{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: url(../images/自做/img-1.jpg)no-repeat center/cover;
+    opacity: 0;
+    transition: opacity .5s;
 }
-100% {
-    --rotate: 360deg;
+.card:hover .img-box{
+    opacity: 1;
 }
-}
-
-
