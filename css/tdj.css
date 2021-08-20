@@ -49,10 +49,21 @@
 .img-warp{transform:translateX(-150%);opacity:0;transition:all .8s ease .8s;}
 .active .img-warp{transform:translateX(0);opacity:1;}
 .img-w{width:50%;height:auto;}
-.img-cricle{position:absolute;top:38%;left:68%;width:13%;}
+.img-cricle{position:absolute;top:38%;left: 37%;width: 26.2%;cursor:pointer;}
 .active .img-cricle{animation:flip 1s ease 1.6s both;}
+.lot-btn{position:absolute;width:50%;height:100%;top:0;right:0;}
 .img-btn{position: absolute;top:82%;left:82%;width:15%;transform:translateX(150%);opacity:0;transition:all .8s ease 1.2s;}
 .active .img-btn{transform:translateX(0);opacity:1;}
+.small{position:absolute;width:23%;height:0;padding-bottom:23%;border:2px solid #fff;border-radius:50%;opacity:0;box-shadow:0 0 40px #ff0,0 0 40px #ff0 inset;transition:opacity .4s;}
+.small:nth-child(2){top: 7.8%;left: 37.5%;}
+.small:nth-child(3){top: 16.7%;left: 64.5%;}
+.small:nth-child(4){top: 38.2%;left: 75%;}
+.small:nth-child(5){top: 60.7%;left: 64.5%;}
+.small:nth-child(6){top: 70.2%;left: 37.5%;}
+.small:nth-child(7){top: 60.7%;left: 11.5%;}
+.small:nth-child(8){top: 38.3%;left: 2%;}
+.small:nth-child(9){top: 16.7%;left: 11.7%;}
+#act{opacity:1;}
 
 /* 硬幣轉動效果 */
 @keyframes flip{
@@ -103,7 +114,7 @@
     .img-box, .download-box{width:80%;left:10%;right:10%;}
     .active .img-box{bottom:15%;}
     .img-w{width:100%;height:auto;}
-    .img-cricle{position:absolute;top:38%;left:38%;width:24%;}
+    .lot-btn{width:100%;}
     .img-btn {top:100%;left:15%;width:70%;}
     .page-3l {width:100%;}
     .ad-img {width:100%;position:relative !important;top:0 !important;left:0 !important;}
