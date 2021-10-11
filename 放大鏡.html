@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+    margin:0;
+    padding:0;
+    }
+    img{
+    width: 100%;
+    height: auto;
+    -webkit-filter:blur(10px);
+    }
+    #pic_wrap{
+    position:relative;
+    width: 100%;
+    height: 100%;
+    }
+    #float_box{
+    width:100px;
+    height:100px;
+    background-color:green;
+    opacity:0.3;
+    position:absolute;
+    display:none;
+    border-radius: 50%;
+    }
+    #big_img{
+    background-image:url(1.jpg);
+    width:1920px;
+    height: 1080px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    position:relative;
+    -webkit-filter:blur(0px);
+    }
+    #show{
+    position: absolute;
+    width:300px;
+    height:300px;
+    background-color:white;
+    opacity:1;
+    overflow:hidden;
+    display:none;
+    border-radius: 50%;
+    pointer-events: none;
+    }
+
+</style>
+</head>
+<body>
+    <a href="https://www.pay69slot.com/%E0%B9%80%E0%B8%81%E0%B8%A1%E0%B8%A2%E0%B8%B4%E0%B8%87%E0%B8%9B%E0%B8%A5%E0%B8%B2?brand=JDB,SG,JILI,RSG,FC,R88,PS,AW">
+        <div id="pic_wrap">
+            <div id="float_box"></div>
+            <img src="images/自做/LP-1_1920x1080.jpg">
+        </div>
+        <div id="show">
+            <img src="images/自做/LP-1_1920x1080.jpg" id="big_img">
+        </div>
+    </a>
+    
+    <script src="等比放大鏡.js"></script>
+    <script type="text/javascript">
+
+    var pic_wrap=document.getElementById('pic_wrap'),
+        float_box=document.getElementById("float_box"),
+        show=document.getElementById('show');
+        big_img=document.getElementById("big_img");
+
+    //滑鼠移入事件，讓放大鏡和放大區顯示！
+    pic_wrap.onmouseover=function(){
+        float_box.style.display="block";
+        show.style.display="block";
+    }
+
+    //滑鼠不斷移動時觸發，實時更新放大鏡得到的圖片
+    pic_wrap.onmousemove=function(event){
+        floatMove(float_box,pic_wrap,event);
+        showPic();
+    }
+    //滑鼠移出後，放大鏡和放大區隱藏
+    pic_wrap.onmouseout=function(){
+        float_box.style.display="none";
+        show.style.display="none";
+    }
+
+    //由於offset方法包括邊框，在使用的時候很容易出現問題，所以用style來實時獲取attr！
+    function getStyle(obj,attr){
+        if(window.currentStyle){
+        returnparseInt(obj.currentStyle[attr]);
+        }
+        else{
+        return parseInt(getComputedStyle(obj,null)[attr]);
+        }
+    }
+    //運動框架，控制放大鏡在原圖中的位置！
+    function floatMove (argu1,argu2,event){
+        var e=event||window.event;
+        var minLeft = getStyle(argu1,"width");
+        var maxLeft = getStyle(argu2,"width")-minLeft/2;
+        var minHeight = getStyle(argu1,"height");
+        var maxHeight = getStyle(argu2,"height")-minHeight/2;
+        if(e.clientX<minLeft/2){
+            float_box.style.left="0px";//防止放大鏡超出左邊框
+        }
+        else if(e.clientX>maxLeft){
+            float_box.style.left=getStyle(argu2,"width")-getStyle(argu1,"width")+"px";//防止放大鏡超出右邊框
+        }
+        else{
+            float_box.style.left=event.clientX-minLeft/2+"px";//放大鏡完全在圖片內時正常移動
+        }
+        if(e.clientY<minHeight/2){
+            float_box.style.top="0px";//防止放大鏡超出上邊框
+        }
+        else if(e.clientY>maxHeight){
+            float_box.style.top=getStyle(argu2,"height")-getStyle(argu1,"height")+"px";//防止放大鏡超出下邊框
+        }
+        else{
+            float_box.style.top=event.clientY-minLeft/2+"px";
+        }
+    }
+
+    //用來顯示放大鏡得到的圖片，利用坐標計算！實時更新可視區域
+    function showPic(){
+        var iCurLeft=getStyle(float_box,"left");
+        var iCurTop=getStyle(float_box,"top");
+        big_img.style.width=3*getStyle(pic_wrap,"width")+"px";
+        big_img.style.height=3*getStyle(pic_wrap,"height")+"px";
+        console.log((pic_wrap,"width"));
+        var a=getStyle(pic_wrap,"width")-getStyle(float_box,"width");
+        var b=getStyle(big_img,"width")-getStyle(show,"width");
+        var moveWidth=-(iCurLeft/a)*b;
+        big_img.style.left=moveWidth+"px";
+        show.style.left=(iCurLeft-100)+"px"
+        var c=getStyle(pic_wrap,"height")-getStyle(float_box,"height");
+        var d=getStyle(big_img,"height")-getStyle(show,"height");
+        var moveHigth=-(iCurTop/c)*d;
+        big_img.style.top=moveHigth+"px";
+        show.style.top=(iCurTop-100)+"px"
+    }
+    </script>
+</body>
+</html>
