@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        :root {
+        --black:rgba(0,0,0,1);
+        --b90:rgba(0,0,0,.9);
+        --b80:rgba(0,0,0,.8);
+        --b70:rgba(0,0,0,.7);
+        --b60:rgba(0,0,0,.6);
+        --b50:rgba(0,0,0,.5);
+        --b40:rgba(0,0,0,.4);
+        --b30:rgba(0,0,0,.3);
+        --b20:rgba(0,0,0,.2);
+        --b10:rgba(0,0,0,.1);
+        --white:rgba(255,255,255,1);
+        --w90:rgba(255,255,255,.9);
+        --w80:rgba(255,255,255,.8);
+        --w70:rgba(255,255,255,.7);
+        --w60:rgba(255,255,255,.6);
+        --w50:rgba(255,255,255,.5);
+        --w40:rgba(255,255,255,.4);
+        --w30:rgba(255,255,255,.3);
+        --w20:rgba(255,255,255,.2);
+        --w10:rgba(255,255,255,.1);
+        --transparent:transparent;
+        }
+        header{height: 80px;}
+        .vh100{height: 100vh;}
+        .left-bar{background-color: var(--black);}
+        .card-header{background-color: var(--w10);}
+        .btn-link{color: var(--w80);}
+        .list-group-item{color: var(--w60);}
+        .middle{max-width: 440px;}
+        .right-r{max-width: none;}
+        .tv-box{background-color: var(--b10);width: 440px;height: 464px;}
+        .tv{top: 0;bottom: 0;left: 0;right: 0;}
+        .bet-box{background-color: var(--b30);}
+        .talkbox{background-color: var(--b50);width: 440px;height: 464px;padding: 8px;scrollbar-width: none;-ms-overflow-style: none;}
+        .msg-box{background-color: var(--w50);height: calc(100% - 88px);}
+        .msg-box::-webkit-scrollbar {display: none;}
+        .input-box{margin-top: 8px;}
+        .input-box textarea{width: calc(100% - 88px);max-height: 80px;min-height: 80px;border-radius: 5px;}
+        .input-box button{width: 80px;height: 80px;border-radius: 5px;cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div class="container vh100 bg-dark">
+        <div class="row w-100 h-100 mx-auto align-items-center justify-content-around">
+            <!-- 左選單 START -->
+            <!-- <div class="col-8 col-md-3 p-0 h-100 left-bar">
+                <div class="accordion" id="accordionExample">
+                    <div class="card border-0 bg-transparent">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                            <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                ul-1
+                            </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item bg-transparent">li1</li>
+                                    <li class="list-group-item bg-transparent">li2</li>
+                                    <li class="list-group-item bg-transparent">li3</li>
+                                    <li class="list-group-item bg-transparent">li4</li>
+                                    <li class="list-group-item bg-transparent">li5</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 bg-transparent">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                            <button class="btn btn-link w-100 text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                ul-2
+                            </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item bg-transparent">li1</li>
+                                    <li class="list-group-item bg-transparent">li2</li>
+                                    <li class="list-group-item bg-transparent">li3</li>
+                                    <li class="list-group-item bg-transparent">li4</li>
+                                    <li class="list-group-item bg-transparent">li5</li>
+                                </ul>                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 bg-transparent">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                            <button class="btn btn-link w-100 text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                ul-3
+                            </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item bg-transparent">li1</li>
+                                    <li class="list-group-item bg-transparent">li2</li>
+                                    <li class="list-group-item bg-transparent">li3</li>
+                                    <li class="list-group-item bg-transparent">li4</li>
+                                    <li class="list-group-item bg-transparent">li5</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- 左選單 END -->
+            <!-- 右選單 START -->
+            <div class="tv-box position-relative">
+                <div class="position-absolute tv" style="overflow:hidden;border:0px">
+                    <div style="width:1920px;height:1080px;margin:-102px 0px 0px -1470px;">
+                        <iframe id="frame" src="https://sport.zigzagsport.com/SportsBook/Home?token=-&d=d&l=en&tz=&of=0&customCssUrl=&sportsBookView=&clearSiteStyles=false&resetAllStyles=false" width="1920" height="1080" scrolling="no"></iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="bet-box h-100 overflow-auto">
+                <div class="p-3">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, consectetur quis nostrum fugit recusandae accusamus! Perferendis aspernatur in quae repellat provident sed aliquid veritatis sequi, beatae quos ipsa optio ratione dignissimos. Aliquid numquam cumque impedit ratione sit iusto consequatur harum est labore ipsum earum aperiam recusandae, illum vel, quae quas optio, tenetur ad laudantium debitis eveniet voluptate doloremque sint consectetur? Culpa inventore omnis, facilis sed vel, praesentium sit saepe rerum magnam soluta fuga. Ad voluptates nemo debitis perferendis praesentium assumenda quam facilis quos ipsam! Aliquam, deleniti laborum voluptate ad inventore, quia quae blanditiis velit veritatis odio fuga eaque minus neque atque ea sunt doloremque accusantium sed temporibus! Laudantium dolorum, asperiores eius enim expedita suscipit voluptas unde labore earum quidem dolorem laborum voluptates ipsa beatae at. Unde laborum dolorum reiciendis dolore exercitationem libero, harum fuga tempora velit! Minima aliquam nemo at rem eos aut dolorum repellendus nulla facere quam soluta quisquam similique nisi quae odio ab, a ducimus reiciendis deleniti beatae quo dicta, culpa saepe nesciunt! Quibusdam nostrum adipisci consequuntur, exercitationem ea asperiores inventore minima deserunt nisi debitis esse harum suscipit quae commodi excepturi maiores velit possimus quasi molestias error tempora. Consequatur iusto illum distinctio nemo molestias quis libero accusantium est.
+                </div>
+            </div> -->
+            <div class="talkbox">
+                <div class="msg-box overflow-auto">
+                    <div class="p-3">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, consectetur quis nostrum fugit recusandae accusamus! Perferendis aspernatur in quae repellat provident sed aliquid veritatis sequi, beatae quos ipsa optio ratione dignissimos. Aliquid numquam cumque impedit ratione sit iusto consequatur harum est labore ipsum earum aperiam recusandae, illum vel, quae quas optio, tenetur ad laudantium debitis eveniet voluptate doloremque sint consectetur? Culpa inventore omnis, facilis sed vel, praesentium sit saepe rerum magnam soluta fuga. Ad voluptates nemo debitis perferendis praesentium assumenda quam facilis quos ipsam! Aliquam, deleniti laborum voluptate ad inventore, quia quae blanditiis velit veritatis odio fuga eaque minus neque atque ea sunt doloremque accusantium sed temporibus! Laudantium dolorum, asperiores eius enim expedita suscipit voluptas unde labore earum quidem dolorem laborum voluptates ipsa beatae at. Unde laborum dolorum reiciendis dolore exercitationem libero, harum fuga tempora velit! Minima aliquam nemo at rem eos aut dolorum repellendus nulla facere quam soluta quisquam similique nisi quae odio ab, a ducimus reiciendis deleniti beatae quo dicta, culpa saepe nesciunt! Quibusdam nostrum adipisci consequuntur, exercitationem ea asperiores inventore minima deserunt nisi debitis esse harum suscipit quae commodi excepturi maiores velit possimus quasi molestias error tempora. Consequatur iusto illum distinctio nemo molestias quis libero accusantium est.
+                    </div>
+                </div>
+                <div class="input-box d-flex justify-content-between">
+                    <textarea class=""></textarea>
+                    <button class="">Enter</button>
+                </div>
+            </div>
+            <!-- 右選單 END -->
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
+        var iframe = document.getElementById("frame");
+        var iwindow = iframe.contentWindow;
+        var idoc = iwindow.document;
+        console.log("window",iwindow);//獲取iframe的window物件
+        console.log("document",idoc);  //獲取iframe的document
+        console.log("html",idoc.documentElement);//獲取iframe的html
+        console.log("head",idoc.head);  //獲取head
+        console.log("body",idoc.body);  //獲取body
+    </script>
+</body>
+</html>
