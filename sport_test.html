@@ -30,6 +30,7 @@
         --w10:rgba(255,255,255,.1);
         --transparent:transparent;
         }
+        body{background: url(images/L.png)no-repeat left/contain, url(images/R.png)no-repeat right/contain, url(images/Sport-BN-BG.jpg)no-repeat center/cover;}
         header{height: 80px;}
         .vh100{height: 100vh;}
         .left-bar{background-color: var(--black);}
@@ -38,20 +39,30 @@
         .list-group-item{color: var(--w60);}
         .middle{max-width: 440px;}
         .right-r{max-width: none;}
-        .tv-box{background-color: var(--b10);width: 440px;height: 464px;}
+        .tv-width{background-color: rgba(158,181,165,.5);width: 100%;max-width: 440px;border-radius: 5px;box-sizing: content-box;padding: 8px;}
+        .tv-box{background-color: var(--b10);padding-bottom: 101.5%;}
         .tv{top: 0;bottom: 0;left: 0;right: 0;}
+        .tv > div{width:1920px;height:1080px;margin:-102px 0px 0px -1470px;transform-origin: top left;}
         .bet-box{background-color: var(--b30);}
-        .talkbox{background-color: var(--b50);width: 440px;height: 464px;padding: 8px;scrollbar-width: none;-ms-overflow-style: none;}
+        .talkbox{background-color: rgba(158,181,165,.5);width: 100%;max-width: 456px;height: 462px;padding: 8px;border-radius: 5px;scrollbar-width: none;-ms-overflow-style: none;}
         .msg-box{background-color: var(--w50);height: calc(100% - 88px);}
         .msg-box::-webkit-scrollbar {display: none;}
+        .msg-l,.msg-r{width: fit-content;max-width: 270px;margin-bottom: 8px;padding: 8px;border-radius: 5px;color: var(--w90);}
+        .msg-l{margin-right: auto;background-color: var(--b50);}
+        .msg-r{margin-left: auto;background-color: rgba(22,96,72,.5);}
         .input-box{margin-top: 8px;}
-        .input-box textarea{width: calc(100% - 88px);max-height: 80px;min-height: 80px;border-radius: 5px;}
-        .input-box button{width: 80px;height: 80px;border-radius: 5px;cursor: pointer;}
+        .input-box textarea{width: calc(100% - 88px);max-height: 80px;min-height: 80px;border-radius: 5px;background: var(--w80);}
+        .input-box button{width: 80px;height: 80px;background: rgba(6,155,100,1);border: 2px solid var(--w50);border-radius: 5px;box-shadow: 10px 10px 10px var(--b50) inset,-10px -10px 10px var(--b60) inset;cursor: pointer;color: var(--w80);}
+        @media screen and (max-width:500px) {
+            body{background: url(images/R.png)no-repeat right/contain, url(images/Sport-BN-BG.jpg)no-repeat center/cover;}
+            .talkbox{height: calc(100% - 464px);}
+            .tv-width{padding: 0;}
+        }
     </style>
 </head>
 <body>
-    <div class="container vh100 bg-dark">
-        <div class="row w-100 h-100 mx-auto align-items-center justify-content-around">
+    <div class="container mx-auto p-0">
+        <div class="row w-100 vh100 mx-auto align-items-center justify-content-around">
             <!-- 左選單 START -->
             <!-- <div class="col-8 col-md-3 p-0 h-100 left-bar">
                 <div class="accordion" id="accordionExample">
@@ -119,10 +130,10 @@
             </div> -->
             <!-- 左選單 END -->
             <!-- 右選單 START -->
-            <div class="tv-box position-relative">
-                <div class="position-absolute tv" style="overflow:hidden;border:0px">
-                    <div style="width:1920px;height:1080px;margin:-102px 0px 0px -1470px;">
-                        <iframe id="frame" src="https://sport.zigzagsport.com/SportsBook/Home?token=-&d=d&l=en&tz=&of=0&customCssUrl=&sportsBookView=&clearSiteStyles=false&resetAllStyles=false" width="1920" height="1080" scrolling="no"></iframe>
+            <div class="tv-width">
+                <div class="tv-box w-100 position-relative">
+                    <div class="position-absolute tv" style="overflow:hidden;border:0px">
+                        <div id="frameBox"></div>
                     </div>
                 </div>
             </div>
@@ -133,8 +144,11 @@
             </div> -->
             <div class="talkbox">
                 <div class="msg-box overflow-auto">
-                    <div class="p-3">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, consectetur quis nostrum fugit recusandae accusamus! Perferendis aspernatur in quae repellat provident sed aliquid veritatis sequi, beatae quos ipsa optio ratione dignissimos. Aliquid numquam cumque impedit ratione sit iusto consequatur harum est labore ipsum earum aperiam recusandae, illum vel, quae quas optio, tenetur ad laudantium debitis eveniet voluptate doloremque sint consectetur? Culpa inventore omnis, facilis sed vel, praesentium sit saepe rerum magnam soluta fuga. Ad voluptates nemo debitis perferendis praesentium assumenda quam facilis quos ipsam! Aliquam, deleniti laborum voluptate ad inventore, quia quae blanditiis velit veritatis odio fuga eaque minus neque atque ea sunt doloremque accusantium sed temporibus! Laudantium dolorum, asperiores eius enim expedita suscipit voluptas unde labore earum quidem dolorem laborum voluptates ipsa beatae at. Unde laborum dolorum reiciendis dolore exercitationem libero, harum fuga tempora velit! Minima aliquam nemo at rem eos aut dolorum repellendus nulla facere quam soluta quisquam similique nisi quae odio ab, a ducimus reiciendis deleniti beatae quo dicta, culpa saepe nesciunt! Quibusdam nostrum adipisci consequuntur, exercitationem ea asperiores inventore minima deserunt nisi debitis esse harum suscipit quae commodi excepturi maiores velit possimus quasi molestias error tempora. Consequatur iusto illum distinctio nemo molestias quis libero accusantium est.
+                    <div id="msg" class="p-3">
+                        <div class="msg-l">別人再說話喔喔喔話喔喔喔喔喔喔喔喔喔喔喔..................</div>
+                        <div class="msg-r">我自己在說話......</div>
+                        <div class="msg-l">別人再說話喔喔喔話喔喔喔喔喔喔喔喔喔喔喔..................</div>
+                        <div class="msg-r">我自己在說話喔喔喔話喔喔......</div>
                     </div>
                 </div>
                 <div class="input-box d-flex justify-content-between">
@@ -149,14 +163,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script>
-        var iframe = document.getElementById("frame");
-        var iwindow = iframe.contentWindow;
-        var idoc = iwindow.document;
-        console.log("window",iwindow);//獲取iframe的window物件
-        console.log("document",idoc);  //獲取iframe的document
-        console.log("html",idoc.documentElement);//獲取iframe的html
-        console.log("head",idoc.head);  //獲取head
-        console.log("body",idoc.body);  //獲取body
+        let iframeCon = document.querySelector('#frameBox')
+        let iframe = document.createElement('iframe');
+            iframe.id = "frame",
+            iframe.name="polling",
+            iframe.width="1920",
+            iframe.height="1080"
+            iframe.scrolling="no",
+            iframe.src="https://sport.zigzagsport.com/SportsBook/Home?token=-&d=d&l=en&tz=&of=0&customCssUrl=&sportsBookView=&clearSiteStyles=false&resetAllStyles=false";
+        iframeCon.appendChild(iframe);
+        iframe.onload= function(){
+            if(window.innerWidth < 440){
+                scale = window.innerWidth / 440;
+                newStyle = "transform: scale(" + scale + ");" 
+                marginL = -1470*scale;
+                marginT = -102*scale;
+                margin ="margin:" + marginT + "px" + " 0 0 " + marginL + "px;"
+                iframeCon.style=margin + newStyle;
+                tvH = document.querySelector('.tv').clientHeight;
+                talkbox = document.querySelector('.talkbox');
+                talkbox.style="height:calc(100% - " + tvH + "px);";
+            }
+        }
+        // iframe.onload= function(){
+        //     var iloc = iframe.contentWindow.location;
+        //     var idoc = iframe.contentDocument;
+        //     console.log()
+        //     setTimeout(function(){
+        //         text = idoc.getElementsByTagName('body')[0].textContent;
+        //         console.log(text);
+        //         iloca.reload(); //重新整理頁面,再次獲取資訊，並且會觸發onload函式
+        //     },2000);
+        // }
+        // setTimeout (function (){
+        //     let tvBox = document.querySelector('#container');
+        //     console.log(tvBox)
+        // },10000)
     </script>
 </body>
 </html>
