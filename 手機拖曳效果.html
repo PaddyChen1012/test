@@ -103,11 +103,13 @@
             a.setAttribute('href', 'https://www.itread01.com/content/1544371033.html');
             linkBox.appendChild(a);
             linkBox.style = 'display:block;'
-        }else {
+        }else if (divY > opBox+2*opH){
             a.setAttribute('class', 'invest');
             a.setAttribute('href', 'https://www.itread01.com/content/1544371033.html');
             linkBox.appendChild(a);
             linkBox.style = 'display:block;'
+        }else {
+            return
         }
         
     }
