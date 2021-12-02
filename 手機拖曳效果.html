@@ -90,7 +90,7 @@
             op1 = document.querySelector('#options1'),
             op2 = document.querySelector('#options2'),
             op3 = document.querySelector('#options3'),
-            opH = document.querySelector('#options1').offsetHeight
+            opH = document.querySelector('#options1').offsetHeight,
             linkBox = document.querySelector('#link_box')
             a = document.createElement('a')
         if (divY >= opBox & divY < opBox+opH){
@@ -118,15 +118,11 @@
         $(this).on('touchstart', function(evt) {
             var e = event || evt;
             e.preventDefault();//阻止其他事件
-            //要做的事情
         })
         .on('touchmove', function(evt) {
             var e = event || evt;
             e.preventDefault();//阻止其他事件
 
-            // 如果这个元素的位置内只有一个手指的话
-            // console.log(e.targetTouches)
-            // console.log(event.targetTouches[0].clientX+"/"+event.targetTouches[0].clientY)
             if (e.targetTouches.length == 1) {
                 var touch = e.targetTouches[0];  // 把元素放在手指所在的位置
                 $(this).css("left",(touch.pageX- parseInt($(this).width())/2 + 'px'));
@@ -135,8 +131,8 @@
         })
         .on('touchend', function(evt) {
             var e = event || evt;
-            getcolor();
             e.preventDefault();//阻止其他事件
+            getcolor();
         })
     });
 </script>
