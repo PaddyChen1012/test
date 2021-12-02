@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset-min.css">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .box{
+            position: relative;
+            width:100%;
+            margin:0 auto;
+            display:flex;
+            flex-direction: column;
+        }
+        .box:first-child{
+            height: 160px;
+        }
+        .box:nth-child(2){
+            height: calc(100% - 160px);
+        }
+        .div{
+            position:absolute;
+            width: 120px;
+            height: 120px;
+            text-align: center;
+            font-size:30px;
+            background: url(https://doqvf81n9htmm.cloudfront.net/data/maggieyu_81/180810/081002.jpg)no-repeat center/cover;
+            z-index: 1;
+        }
+        .container{
+            width:100%;
+            height:calc(100% / 3);
+            border:1px dashed gray;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .link-box{
+            position: absolute;
+            display: none;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background-color: #000;
+            z-index: 2;
+        }
+        .link-box a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .spend{
+            background-image: url(https://m.foolcdn.com/media/affiliates/images/young_man_with_money_flying_out_of_wallet_fee.width-1200_YeApjPB.jpg);
+        }
+        .save{
+            background-image: url(https://miro.medium.com/max/1200/0*Qsg9yCvBaSUfN-d9);
+        }
+        .invest{
+            background-image: url(https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F1140147076%2F0x0.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="div" style="top:20px;left:calc(50% - 60px);"></div>
+    </div>
+    
+    <div id="option_box" class="box">
+        <div id="options1" class="container a1">Spend</div>
+        <div id="options2" class="container a2">Save</div>
+        <div id="options3" class="container a3">Invest</div>
+    </div>
+
+    <div id="link_box" class="link-box"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script>
+    function getcolor(){
+        let divY = parseInt(document.querySelector('.div').style.top);
+            opBox = document.querySelector('#option_box').offsetTop,
+            op1 = document.querySelector('#options1'),
+            op2 = document.querySelector('#options2'),
+            op3 = document.querySelector('#options3'),
+            opH = document.querySelector('#options1').offsetHeight
+            linkBox = document.querySelector('#link_box')
+            a = document.createElement('a')
+        if (divY >= opBox & divY < opBox+opH){
+            a.setAttribute('class', 'spend');
+            a.setAttribute('href', 'https://www.itread01.com/content/1544371033.html');
+            linkBox.style = 'display:block;'
+            linkBox.appendChild(a);
+        }else if (divY >= opBox+opH & divY < opBox+2*opH){
+            a.setAttribute('class', 'save');
+            a.setAttribute('href', 'https://www.itread01.com/content/1544371033.html');
+            linkBox.appendChild(a);
+            linkBox.style = 'display:block;'
+        }else {
+            a.setAttribute('class', 'invest');
+            a.setAttribute('href', 'https://www.itread01.com/content/1544371033.html');
+            linkBox.appendChild(a);
+            linkBox.style = 'display:block;'
+        }
+        
+    }
+    var divd = $(".div");
+    divd.each(function(index){
+        $(this).on('touchstart', function(evt) {
+            var e = event || evt;
+            e.preventDefault();//阻止其他事件
+            //要做的事情
+        })
+        .on('touchmove', function(evt) {
+            var e = event || evt;
+            e.preventDefault();//阻止其他事件
+
+            // 如果这个元素的位置内只有一个手指的话
+            // console.log(e.targetTouches)
+            // console.log(event.targetTouches[0].clientX+"/"+event.targetTouches[0].clientY)
+            if (e.targetTouches.length == 1) {
+                var touch = e.targetTouches[0];  // 把元素放在手指所在的位置
+                $(this).css("left",(touch.pageX- parseInt($(this).width())/2 + 'px'));
+                $(this).css("top",(touch.pageY- parseInt($(this).height())/2 + 'px'));
+            }
+        })
+        .on('touchend', function(evt) {
+            var e = event || evt;
+            getcolor();
+            e.preventDefault();//阻止其他事件
+        })
+    });
+</script>
+</body>
+</html>
