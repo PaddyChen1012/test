@@ -46,22 +46,18 @@
         if (divY >= opBox & divY < opBox+opH){
             a.setAttribute('class', 'spend');
             a.setAttribute('href', 'https://www.itread01.com/content/1544371033.html');
-            linkBox.style = 'display:block;'
-            linkBox.appendChild(a);
         }else if (divY >= opBox+opH & divY < opBox+2*opH){
             a.setAttribute('class', 'save');
             a.setAttribute('href', 'https://www.itread01.com/content/1544371033.html');
-            linkBox.appendChild(a);
-            linkBox.style = 'display:block;'
         }else if (divY > opBox+2*opH){
             a.setAttribute('class', 'invest');
             a.setAttribute('href', 'https://www.itread01.com/content/1544371033.html');
-            linkBox.appendChild(a);
-            linkBox.style = 'display:block;'
         }else {
             return
         }
-        
+        linkBox.empty();
+        linkBox.style = 'display:block;';
+        linkBox.appendChild(a);
     }
     var divd = $(".div");
     divd.each(function(index){
