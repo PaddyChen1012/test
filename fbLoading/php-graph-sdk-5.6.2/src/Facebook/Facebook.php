@@ -602,8 +602,8 @@ class Facebook
         } while (!$chunk->isLastChunk());
 
         return [
-          'video_id' => $chunk->getVideoId(),
-          'success' => $uploader->finish($endpoint, $chunk->getUploadSessionId(), $metadata),
+            'video_id' => $chunk->getVideoId(),
+            'success' => $uploader->finish($endpoint, $chunk->getUploadSessionId(), $metadata),
         ];
     }
 
