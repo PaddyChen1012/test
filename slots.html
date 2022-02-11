@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .machine {
+        width: 484px;
+        height: 513px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+    }
+    .machine-body {
+        width: 400px;
+        background-color: #c8d0e3;
+        height: 513px;
+        border: 14px solid #2e2a27;
+        border-radius: 34px;
+        box-sizing: border-box;
+    }
+    .rotary-table {
+        width: 278px;
+        background: #2e2a27;
+        border: 16px solid #2e2a27;
+        border-radius: 16px;
+        margin: 54px auto 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .screen {
+        width: 82px;
+        height: 240px;
+        overflow: hidden;
+    }
+    .images {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    li {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        text-align: center;
+        height: 80px;
+        line-height: 80px;
+        font-size: 30px;
+        background-color: wheat;
+    }
+    .transtion {
+        transition: all ease 2s;
+    }
+    .machine-logo {
+        width: 240px;
+        margin: 20px auto 0;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .base {
+        width: 34px;
+        height: 130px;
+        background-color: #b1b8d4;
+        border: 14px solid #2e2a27;
+        border-left: none;
+        box-sizing: border-box;
+        border-top-right-radius: 24px;
+        border-bottom-right-radius: 24px;
+        transform: translateY(250px);
+        position: relative;
+    }
+    .handle {
+        width: 64px;
+        position: absolute;
+        left: 30px;
+        bottom: 28px;
+        cursor: pointer;
+    }
+    .handle-ball {
+        width: 34px;
+        height: 34px;
+        background-color: #ff6169;
+        border-radius: 50%;
+        border: 15px solid #2e2a27;
+        transform: translateY(2px);
+    }
+    .handle-bar {
+        width: 16px;
+        height: 106px;
+        margin: 0 auto;
+        background-color: #2e2a27;
+        transform: translateY(1px);
+    }
+    .handle-shaft {
+        width: 56px;
+        height: 48px;
+        border: 15px solid #2e2a27;
+        border-left: none;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        background-color: #c8d0e3;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }        
+        
+    .shake {
+        animation: shake 0.1s infinite;
+    }
+        
+        
+    @keyframes shake {
+        25% {left: 49.7%;}
+        50% {top: 49.7%;}
+        75% {left: 50%;}
+        100% {top: 50%;}
+    }
+    </style>
+</head>
+<body>
+    <div class="machine">
+        <div class="machine-body">
+            <div class="rotary-table">
+                <div class="screen">
+                    <ul class="images"></ul>
+                </div>
+                <div class="screen">
+                    <ul class="images"></ul>
+                </div>
+                <div class="screen">
+                    <ul class="images"></ul>
+                </div>
+            </div>
+            <div class="machine-logo">
+                <img src="./index.png">
+            </div>
+        </div>
+        <div class="base">
+            <div class="handle" onclick="start(initImagesArr.length)">
+            <div class="handle-ball"></div>
+            <div class="handle-bar"></div>
+            <div class="handle-shaft"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 以下的images命名可能是考慮老虎機裡的內容可能會被替換成水果等其他圖片而非數字，所以將相關的內容變數命名為與images相關
+        // 頁面剛載入時三個列表的初始定位
+        function initPosition(startTranslateYHeight) {
+            firstImagesList.style.transform = `translateY(${startTranslateYHeight}px)`;
+            secondsImagesList.style.transform = `translateY(${startTranslateYHeight}px)`;
+            thirdImagesList.style.transform = `translateY(${startTranslateYHeight}px)`;
+        }
+        
+        
+        // 全部列表新增過渡效果
+        function addTranstion() {
+            firstImagesList.classList.add('transtion');
+            secondsImagesList.classList.add('transtion');
+            thirdImagesList.classList.add('transtion');
+        }
+        
+        
+        // 全部列表刪除過渡效果
+        function removeTranstion(imagesList) {
+            firstImagesList.classList.remove('transtion');
+            secondsImagesList.classList.remove('transtion');
+            thirdImagesList.classList.remove('transtion');
+        }
+        
+        
+        // 給老虎機新增搖晃動畫
+        function startShake() {
+            document.getElementsByClassName('machine')[0].classList.add('shake');
+        }
+        // 停止老虎機搖晃動畫
+        function stopShake() {
+            document.getElementsByClassName('machine')[0].classList.remove('shake');
+        }
+        
+        
+        // 點選第一個是開始，點選第二次是充值遊戲
+        // startTranslateYHeight 列表的初始化時translateY的距離
+        // imageHeight列表的每一項的高度
+        // 列表陣列的長度
+        function start(imagesArrLength) {
+            isStart = !isStart;
+            // 開始遊戲
+            if (isStart) {
+                // 開始遊戲就給列表加過渡效果
+                addTranstion();
+                startShake();
+            
+            
+                // 每個列表滾動的隨機結果
+                let radom1 = Math.floor(Math.random()*imagesArrLength);
+                let radom2 = Math.floor(Math.random()*imagesArrLength);
+                let radom3 = Math.floor(Math.random()*imagesArrLength);
+            
+            
+                firstImagesList.style.transform = `translateY(${-imageHeight * radom1}px)`;
+            
+            
+                // 列表2延遲0.5s後滾動
+                timeout1 = setTimeout(() => {
+                    secondsImagesList.style.transform = `translateY(${-imageHeight * radom2}px)`;
+                },500)
+            
+            
+                // 列表3延遲1s後滾動
+                timeout2 = setTimeout(() => {
+                    thirdImagesList.style.transform = `translateY(${-imageHeight * radom3}px)`;
+                },1000)
+                // 延遲2.6秒後停止抖動
+                timeout3 = setTimeout(() => {
+                    stopShake();
+                },2600)
+                // 遊戲結束後列印結果
+                timeout4 = setTimeout(() => {
+                    console.log(initImagesArr[radom1],initImagesArr[radom2],initImagesArr[radom3]);
+                },3000)
+                // 重置遊戲
+            }else {
+                // 取消上一次未執行完的方法
+                clearTimeout(timeout1);
+                clearTimeout(timeout2);
+                clearTimeout(timeout3);
+                clearTimeout(timeout4);
+                stopShake();
+                // 重置時因為列表會重新移動到初始位置，所以要清除掉過渡效果
+                removeTranstion();
+                // 各個列表回到最初的位置
+                initPosition(startTranslateYHeight);
+            }
+        }
+        
+        
+        // 初始的選項列表
+        let initImagesArr = [6, 5, 4, 3, 2, 1];
+        let imagesArr = [6, 5, 4, 3, 2, 1];
+        // 加長整個選項列表，以完成一個虛假的滾動的效果
+        new Array(20).fill('').forEach(() => {
+            imagesArr = imagesArr.concat(...initImagesArr);
+        })
+        
+        
+        // 獲取第一個列表的dom
+        const firstImagesList = document.getElementsByClassName('images')[0];
+        const secondsImagesList = document.getElementsByClassName('images')[1];
+        const thirdImagesList = document.getElementsByClassName('images')[2];
+        // 構造列表li新增到ul標籤中去
+        imagesArr.forEach(item => {
+            const li = document.createElement('li');
+            const li2 = document.createElement('li');
+            const li3 = document.createElement('li');
+            li.innerHTML = item;
+            li2.innerHTML = item;
+            li3.innerHTML = item;
+            firstImagesList.appendChild(li);
+            secondsImagesList.appendChild(li2);
+            thirdImagesList.appendChild(li3);
+        });
+        
+        
+        
+        
+        // 列表單獨一項的高度
+        const imageHeight = 80;
+        
+        
+        // 獲取一列的高度
+        const listHeight = firstImagesList.scrollHeight;
+        
+        
+        // 初始化列表tranlateY的高度
+        const startTranslateYHeight = - listHeight + 3*imageHeight;
+        
+        
+        // 遊戲是否已經開始
+        let isStart = false;
+        
+        
+        // 三個setTimeout的返回表示符，前兩個是第二列第三列列表開始滾動的延時方法，timeout3是機器停止搖晃動畫的延時方法
+        let timeout1 = null;
+        let timeout2 = null;
+        let timeout3 = null;
+        
+        
+        // 頁面剛進來時列表位置初始化
+        initPosition(startTranslateYHeight);
+    </script>
+</body>
+</html>
