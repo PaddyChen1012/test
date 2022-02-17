@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        body{margin:0;overflow:hidden;}
+        .top-0{top: 0;}
+        .bottom-0{bottom: 0;}
+        .page-container {position:relative;top:0;transition:all 1000ms ease;touch-action:none;width:100%;height:100vh;}
+        .page-item {display:flex;position:relative;justify-content:center;align-items:center;width:100%;height:100%;transition:all .8s ease;overflow:hidden;}
+        .page-item:nth-child(1){background:url(images/bg1.jpg)no-repeat center/cover;}
+        .page-item:nth-child(2){background:url(images/bg2.jpg)no-repeat center/cover;}
+        .page{width:90%;max-width:1440px;}
+        .lot-word{transform:translateY(-50%);opacity:0;transition:all .6s ease .8s;}
+        .active .lot-word{transform:translateY(0);opacity:1;}
+        .img-warp{transform:translateX(-150%);opacity:0;transition:all .8s ease .8s;}
+        .active .img-warp{transform:translateX(0);opacity:1;}
+        .img-w{width:50%;height:auto;}
+        .img-cricle{position:absolute;top:37%;left:37%;width:26.2%;cursor:pointer;}
+        .active .img-cricle{animation:flip 1s ease 1.6s both;}
+        .lot-btn{position:absolute;width:50%;height:100%;top:0;right:0;}
+        .img-btn{position:absolute;top:82%;left:82%;width:15%;transform:translateX(150%);opacity:0;transition:all .8s ease 1.2s;}
+        .active .img-btn{transform:translateX(0);opacity:1;}
+        .small{position:absolute;width:22%;height:0;padding-bottom:22%;border:2px solid #fff;border-radius:50%;opacity:0;box-shadow:0 0 40px #ff0,0 0 40px #ff0 inset;transition:opacity .4s;}
+        .small:nth-child(2){top: 7%;left: 39%;}
+        .small:nth-child(3){top: 16.5%;left: 61%;}
+        .small:nth-child(4){top:38.2%;left: 70%;}
+        .small:nth-child(5){top:60.7%;left: 61%;}
+        .small:nth-child(6){top:70.2%;left: 39%;}
+        .small:nth-child(7){top:60.7%;left: 17%;}
+        .small:nth-child(8){top: 38.2%;left: 8%;}
+        .small:nth-child(9){top: 16.5%;left: 17%;}
+        #act{opacity:1;}
+        
+
+        .modal.show{display:block;background-color:rgba(0,0,0,.8);}
+
+        /* 硬幣轉動效果 */
+        @keyframes flip{
+            0%{
+                -webkit-transform:perspective(400px) scaleX(1) translateZ(0) rotateY(-1turn);
+                transform:perspective(400px) scaleX(1) translateZ(0) rotateY(-1turn);
+                -webkit-animation-timing-function:ease-out;
+                animation-timing-function:ease-out;
+            }
+            40%{
+                -webkit-transform:perspective(400px) scaleX(1) translateZ(150px) rotateY(-190deg);
+                transform:perspective(400px) scaleX(1) translateZ(150px) rotateY(-190deg);
+                -webkit-animation-timing-function:ease-out;
+                animation-timing-function:ease-out;
+            }
+            50%{
+                -webkit-transform:perspective(400px) scaleX(1) translateZ(150px) rotateY(-170deg);
+                transform:perspective(400px) scaleX(1) translateZ(150px) rotateY(-170deg);
+                -webkit-animation-timing-function:ease-in;
+                animation-timing-function:ease-in;
+            }
+            80%{
+                -webkit-transform:perspective(400px) scale3d(.95,.95,.95) translateZ(0) rotateY(0deg);
+                transform:perspective(400px) scale3d(.95,.95,.95) translateZ(0) rotateY(0deg);
+                -webkit-animation-timing-function:ease-in;
+                animation-timing-function:ease-in;
+            }
+            100%{
+                -webkit-transform:perspective(400px) scaleX(1) translateZ(0) rotateY(0deg);
+                transform:perspective(400px) scaleX(1) translateZ(0) rotateY(0deg);
+                -webkit-animation-timing-function:ease-in;
+                animation-timing-function:ease-in;
+            }
+        }
+
+        @media screen and (max-width:500px) {
+            .img-w{width:100%;height:auto;}
+            .lot-btn{width:100%;}
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="page-item" id="page1">
+            <div class="page h-100 py-3">
+                <div class="row position-relative h-100 align-items-end">
+                    <div class="w-100">
+                        <img class="w-100" src="images/AD(Genshin)Text_1200x440.png" alt="">
+                        <a href=""><img class="w-100" src="images/button2.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-item" id="page2">
+            <div class="page h-100 py-3">
+                <div class="row position-relative h-100">
+                    <div class="col-12 position-absolute text-center top-0"><img src="images/Title.png" class="img-fluid lot-word" alt=""></div>
+                    <div class="col-12 ml-auto my-auto text-right img-warp p-0">
+                        <img src="images/Roulette.png" class="img-w" alt="">
+                        <div id="lot-btn" class="lot-btn">
+                            <img src="images/Roulette-btn.png" class="img-cricle" alt="">
+                            <div class="small" id=""></div>
+                            <div class="small" id=""></div>
+                            <div class="small" id=""></div>
+                            <div class="small" id=""></div>
+                            <div class="small" id=""></div>
+                            <div class="small" id=""></div>
+                            <div class="small" id=""></div>
+                            <div class="small" id=""></div>
+                        </div>
+                    </div>
+                    <div class="col-12 position-absolute text-center bottom-0"><img src="images/button2.png" class="img-fluid" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">恭喜中獎</h5>
+                    <button id="closebtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <a href="">PLAY NOW</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
+        var container = document.querySelector('.page-container')
+        // 獲取瀏覽器視窗高度
+        var viewHeight = document.documentElement.clientHeight
+        // 獲取滾動的頁數
+        var pageNum = document.querySelectorAll('.page-item').length
+        // 初始化當前位置, 距離原始頂部距離
+        var currentPosition = 0
+        // 設置頁面高度
+        container.style.height = viewHeight + 'px'
+        // 向下滾動頁面
+        function goDown () {
+            if (currentPosition > - viewHeight * (pageNum - 1)) {
+                currentPosition = currentPosition - viewHeight
+                container.style.top = currentPosition + 'px'
+            }
+        }
+        // 向上滾動頁面
+        function goUp () {
+            if (currentPosition < 0) {
+                currentPosition = currentPosition + viewHeight
+                container.style.top = currentPosition + 'px'
+            }
+        }
+
+        // 節流函數
+        function throttle (fn, delay) {
+            let baseTime = 0
+            return function () {
+                const currentTime = Date.now()
+                if (baseTime + delay < currentTime) {
+                fn.apply(this, arguments)
+                baseTime = currentTime
+                }
+            }
+        }
+
+        // 處理移動端滑動
+        let changClass = document.querySelector('.page-container')
+        let tagClass = document.querySelector('.tag-box')
+        let thisPage = 0
+        let pageNumber = changClass.children
+        let scrollMax = pageNumber.length - 1
+        let i = 0
+        let tagBtn = document.querySelectorAll('.tag-btn')
+        var touchStartY = 0
+        document.addEventListener('touchstart', event => {
+            touchStartY = event.touches[0].pageY
+        })
+        var handleTouchEnd = throttle(touchEnd, 500)
+        document.addEventListener('touchend', handleTouchEnd)
+        function touchEnd (e) {
+            var touchEndY = e.changedTouches[0].pageY
+            if (touchEndY - touchStartY < 0) { // 向上滑動, 頁面向下滾動
+                goDown();
+                if (i < scrollMax) {
+                    changClass.children[thisPage].classList.remove('active')
+                    thisPage ++
+                    changClass.children[thisPage].classList.add('active')
+                    i ++
+                }else{
+                    return
+                }
+            } 
+            if (touchEndY - touchStartY > 0) {
+                goUp();
+                if (i > 0) {
+                    changClass.children[thisPage].classList.remove('active')
+                    thisPage --
+                    changClass.children[thisPage].classList.add('active')
+                    i --
+                }else{
+                    return
+                }
+            }
+            else{
+                return
+            }
+        }
+
+        // 調整視窗重整
+        window.onresize = function(){
+            window.location.reload();
+        }
+        // 輪盤效果
+        let lotBtn = document.querySelector('#lot-btn')
+        let giftNum = document.querySelectorAll('.small')
+        let model = document.querySelector('#exampleModal')
+        let closeBtn = document.querySelector('#closebtn')
+        let num=0;
+        let shijian=Math.ceil(Math.random()*3)*8;
+        let gift=Math.floor(Math.random()*2)
+        let stopTime = 0
+
+        // setInterval(要執行的代碼, 每毫秒執行)
+        let test = function test(){
+            if (gift <= 0){
+                stopTime = (shijian+3)
+            }else{
+                stopTime = (shijian+7)
+            }
+            oTime=setInterval(dianji,200);
+            setTimeout(open,(stopTime+2)*200);
+        }
+        let dianji = function () {
+            if (num < 8){
+                for(j=0;j<giftNum.length;j++){
+                    giftNum[j].id="";
+                }
+                giftNum[num].id="act";
+                num++;
+            }else{
+                num=0;
+                for(j=0;j<giftNum.length;j++){
+                    giftNum[j].id="";
+                }
+                giftNum[num].id="act";
+                num++;
+            }
+            // setTimeout(要執行的代碼, 等待的毫秒)
+            setTimeout(tingzhi,stopTime*200);
+            
+            function tingzhi() {
+                clearInterval(oTime)
+                dianji = function (){};
+                console.log(test)
+            }
+        }
+        function open(){
+            model.classList.add('show')
+        }
+        function close(){
+            model.classList.remove('show')
+        } 
+
+        lotBtn.addEventListener('click',test,false)
+        closeBtn.addEventListener('click',close,false)
+    </script>
+</body>
+</html>
