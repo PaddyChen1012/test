@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        pre {
+            width: 100%;
+            overflow-x: scroll;
+        }
+    </style>
+</head>
+<body>
+    <button id="get">取得</button>
+    <button id="create">新增</button>
+    <button id="update">更新</button>
+    <button id="delete">移除</button>
+
+    <hr>
+    回傳資訊：
+    <pre id="message"></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script>
+        const getBtn = document.querySelector('#get');
+        const createBtn = document.querySelector('#create');
+        const updateBtn = document.querySelector('#update');
+        const delBtn = document.querySelector('#delete');
+        const msgBlock = document.querySelector('#message');
+        let msg = '';
+
+        // 行為綁定按鈕
+        getBtn.addEventListener('click', getData);
+        createBtn.addEventListener('click', addToCart);
+        updateBtn.addEventListener('click', updateCart);
+        delBtn.addEventListener('click', delAllData);
+
+        // 基本資訊
+        const uuid = '86bfd5d2-b7d3-4a55-93e6-ef6299ba4c1c';
+        const path = `https://course-ec-api.hexschool.io/api/${uuid}/ec/shopping`;
+        const data = {
+        product: 'mRdI2EbpTVMguM0jbqvlP6h6b007ySFLYLxyqO0qTWtXASP0sJJ7JlrpO9avHqWt',
+        quantity: 1,
+        }
+
+        // 取得資料
+        function getData() {
+        axios.get(path)
+        .then(res => {
+            console.log(res.data);
+            showText(res.data, 'GET');
+        })
+        .catch(error => {
+            console.log(error.response);
+        });
+        }
+
+        // 新增資料
+        function addToCart() {
+        axios.post(path, data)
+        .then(res => {
+            console.log(res.data);
+            showText(res.data, 'POST');
+        })
+        .catch(error => {
+            console.log(error.response);
+            showText(error.response, 'POST 失敗');
+        });
+        }
+
+        // 更新資料
+        function updateCart() {
+        axios.patch(path, data)
+        .then(res => {
+            console.log(res.data);
+            showText(res.data, 'PATCH');
+        })
+        .catch(error => {
+            console.log(error.response);
+            showText(error.response, 'PATCH 失敗');
+        });
+        }
+
+        // 刪除所有購物車品項
+        function delAllData() {
+        axios.delete(`https://course-ec-api.hexschool.io/api/${uuid}/ec/shopping/all/product`)
+            .then(res => {
+            console.log(res.data);
+            showText(res.data, 'DELETE');
+            })
+            .catch(error => {
+            console.log(error.response);
+            showText(error.response, 'DELETE 失敗');
+            });
+        }
+
+        function showText(data, method) {
+        msg = `--- ${method} --- ${ new Date() } \n ${JSON.stringify(data)} \n ${msg}`;
+        msgBlock.innerText = msg;
+}
+    </script>
+</body>
+</html>
