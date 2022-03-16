@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{position: relative;padding: 0;margin: 0;box-sizing: border-box;}
+        .wrap{width: 100vw;height: 100vh;overflow: hidden;}
+        .test,.test1{position: absolute;width: 300px;height: 300px;background: #000;border-radius: 50%;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="test" style="left: 0px;"></div>
+        <div class="test1" style="right: 0px;"></div>
+    </div>
+    <script>
+        let circle = document.querySelector('.test')
+        let circle1 = document.querySelector('.test1')
+        function MouseWheel (e) {
+            e = e || window.event;
+            if(e.wheelDelta <= 0 || e.detail > 0){
+                left = parseInt(circle.style.left);
+                left += 100;
+                circle.style.left = left + "px";
+                right = parseInt(circle1.style.right);
+                right += 100;
+                circle1.style.right = right + "px";
+            }else{
+                left = parseInt(circle.style.left);
+                left -= 100;
+                circle.style.left = left + "px";
+                right = parseInt(circle1.style.right);
+                right -= 100;
+                circle1.style.right = right + "px";
+            }
+        }
+
+        // hook event listener on window object
+        if ('onmousewheel' in window) {
+            window.onmousewheel = MouseWheel;
+        } else if ('onmousewheel' in document) {
+            document.onmousewheel = MouseWheel;
+        } else if ('addEventListener' in window) {
+            window.addEventListener("mousewheel", MouseWheel, false);
+            window.addEventListener("DOMMouseScroll", MouseWheel, false);
+        }
+    </script>
+</body>
+</html>
