@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            perspective: 500px;
+        }
+        #btn{
+            position: absolute;
+            top: calc(50% - 150px);
+            left: calc(50% - 150px);
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            border: 2px solid #000;
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="btn" class=""></div>
+    <script>
+        let btn = document.querySelector('#btn')
+        let btnScrollX = btn.offsetLeft + btn.offsetWidth/2;
+        let btnScrollY = btn.offsetTop + btn.offsetHeight/2;
+        window.onmousemove = function getMousePos(event) {
+            let e = event || window.event;
+            let scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+            let scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+            let x = e.pageX || e.clientX + scrollX;
+            let y = e.pageY || e.clientY + scrollY;
+            let mx = (btnScrollX - x)/btnScrollX;
+            let my = (btnScrollY - y)/btnScrollY;
+            btnChange(mx,my) 
+            return 
+        }
+        function btnChange(mx,my){
+            mx = 10*mx + 'px';
+            my = 10*my + 'px';
+            btn.style.boxShadow = mx + ' ' + my + ' 15px #000';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>隨機數字 1：<span id="random-number-1"></span></p>
+    <p>隨機數字 2：<span id="random-number-2"></span></p>
+    <p>隨機數字 3：<span id="random-number-3"></span></p>
+    <p>隨機數字 4：<span id="random-number-4"></span></p>
+    <p>隨機數字 5：<span id="random-number-5"></span></p>
+
+
+    <script>
+        // 生成介於 min（包括）到 max（包括）之間的整數亂數
+        function getRandomInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // 生成亂數並更新到指定元素中
+        function updateRandomNumbers() {
+            for (let i = 1; i <= 5; i++) {
+                const randomNumber = getRandomInteger(95, 100); // 生成 95 到 100 的整數亂數
+                const randomNumberElement = document.getElementById(`random-number-${i}`);
+                randomNumberElement.textContent = randomNumber;
+            }
+        }
+
+        // 頁面載入完成後立即更新一次亂數
+        window.addEventListener('load', updateRandomNumbers);
+
+        // 在每次重整時更新亂數
+        window.addEventListener('beforeunload', updateRandomNumbers);
+
+    </script>
+</body>
+</html>

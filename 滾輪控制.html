@@ -21,14 +21,14 @@
         let circle1 = document.querySelector('.test1')
         function MouseWheel (e) {
             e = e || window.event;
-            if(e.wheelDelta <= 0 || e.detail > 0){
+            if(e.wheelDelta <= 0 || e.detail > 0) {
                 left = parseInt(circle.style.left);
                 left += 100;
                 circle.style.left = left + "px";
                 right = parseInt(circle1.style.right);
                 right += 100;
                 circle1.style.right = right + "px";
-            }else{
+            }else {
                 left = parseInt(circle.style.left);
                 left -= 100;
                 circle.style.left = left + "px";
@@ -41,9 +41,9 @@
         // hook event listener on window object
         if ('onmousewheel' in window) {
             window.onmousewheel = MouseWheel;
-        } else if ('onmousewheel' in document) {
+        }else if ('onmousewheel' in document) {
             document.onmousewheel = MouseWheel;
-        } else if ('addEventListener' in window) {
+        }else if ('addEventListener' in window) {
             window.addEventListener("mousewheel", MouseWheel, false);
             window.addEventListener("DOMMouseScroll", MouseWheel, false);
         }

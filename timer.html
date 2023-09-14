@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+        var timer = {
+            sto: [],
+            siv: []
+        };
+        // 标记 setTimeoutID
+        timer.sto.push(
+            setTimeout(function () { console.log("3s") }, 3000)
+        );
+        // 标记 setIntervalID
+        timer.siv.push(
+            setInterval(function () { console.log("1s") }, 1000)
+        );
+        // 批量清除 setTimeout
+        // timer.sto.forEach(function(sto) {clearTimeout(sto)}); 
+        // 批量清除 setInterval
+        // timer.siv.forEach(function(siv) {clearInterval(siv)}); 
+        pause(timer.siv)
+
+        // 暂停指定id
+        function pause(id) {
+            if (!id) {
+                this.pauseAll()
+            } else {
+                const item = this.queue.get(id)
+                if (item) item.paused = 1
+            }
+            return true
+        }
+
+        // 恢复指定id
+        function resume(id) {
+            return this.play(id)
+        }
+    </script>
+</body>
+
+</html>

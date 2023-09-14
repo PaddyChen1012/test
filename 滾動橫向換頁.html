@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    html{
+        height: 100%;
+        overflow: hidden;
+    }
+    body{
+        overflow: hidden;
+        background: url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center/cover;
+    }
+    section{
+        display: flex;
+        height: 100vh;
+        transition: all .8s ease;
+    }
+    .page-card-wrap{
+        flex: none;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 32px;
+    }
+    .page-card{
+        position: absolute;
+        width: calc(100% - 64px);
+        height: calc(100% - 64px);
+    }
+    .page-card-1,
+    .page-card-2,
+    .page-card-5,
+    .page-card-6{
+        border-radius: 10px;
+        box-shadow: 10px 10px 20px rgba(0,0,0,.25);
+    }
+    .page-card-1::before,
+    .page-card-2::before,
+    .page-card-5::before,
+    .page-card-6::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        filter: blur(10px);
+        background: linear-gradient(315deg, rgba(255 , 255, 255, .65) 0% 100%), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center/100vw;
+        z-index: -1;
+    }
+
+    .page-card-1 .left{
+        background: url(./images/taikip-phone-r.webp)no-repeat left/auto 90%;
+    }
+    .page-card-1 .right{
+        background: url(./images/taikip-phone-l.webp)no-repeat right/auto 90%;
+    }
+
+    .page-card-2-title{
+        top: 50%;
+        left: 50%;
+        width: 270px;
+        height: 270px;
+        transform: translate(-50%,-50%);
+        background: #fff;
+        z-index: 1;
+    }
+    /* .page-card-2-title::before{
+        content: '';
+        position: absolute;
+        width: calc(100% - 32px);
+        height: calc(100% - 32px);
+        background: #fff;
+        border-radius: 50%;
+    } */
+    .page-card-2 .row{
+        --bs-gutter-x: 0;
+    }
+    .page-card-2-title p{
+        z-index: 1;
+    }
+    .page-card-2 svg{
+        position: absolute;
+        width: 50%;
+        height: 50%;
+    }
+    .square-lb svg {
+        bottom: -5vh;
+        left: -5vh;
+    }
+    .square-rb svg {
+        bottom: -5vh;
+        right: -5vh;
+    }
+    .square-lt svg {
+        top: -5vh;
+        left: -5vh;
+    }
+    .square-rt svg {
+        top: -5vh;
+        right: -5vh;
+    }
+
+    .page-card-3 {
+        background: linear-gradient(315deg, rgba(202, 100, 139, 1) 50%, rgba(0,0,0,0) 50%), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center/100vw;
+        border-radius: 10px;
+        box-shadow: 10px 10px 20px rgba(0,0,0,.25);
+    }
+    .suitable-box{
+        padding-bottom: 100%;
+    }
+    .suitable-box p{
+        height: 30%;
+        background: linear-gradient(0deg, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 100%);
+    }
+
+    .page-card-4>div:nth-child(1),
+    .page-card-4>div:nth-child(3){
+        border-radius: 10px;
+        box-shadow: 10px 10px 20px rgba(0,0,0,.25);
+    }
+    .page-card-4>div:nth-child(1){
+        background:  linear-gradient(315deg, rgba(202, 100, 139, .875) 0% 100%), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat -32px/100vw;
+    }
+    @media screen and (max-width:767px) {
+        body {
+            background: linear-gradient(90deg, #fff 156px, transparent 156px), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center/auto 100vh;
+        }
+        .page-card-wrap{
+            padding: 8px;
+        }
+        .page-card {
+            width: calc(100% - 16px);
+            height: calc(100% - 16px);
+        }
+        .page-card-1, .page-card-2, .page-card-5, .page-card-6 {
+            background: linear-gradient(180deg, rgba(255 , 255, 255, 0) 10%, rgba(255 , 255, 255, .65) 15%), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center/auto 100vh;
+        }
+        .page-card-3 {
+            background: linear-gradient(315deg, rgba(202, 100, 139, .75) 50%, rgba(0,0,0,0) 50%), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center/auto 100vh;
+        }
+        .page-card-4>div,
+        .page-card-6>div{
+            flex: 1;
+        }
+        .page-card-4>div:nth-child(1){
+            margin-bottom: 8px;
+            background: linear-gradient(180deg, rgba(202, 100, 139, 0) 0%, rgba(202, 100, 139, .875) 30%), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center -8px/auto 100vh;
+        }
+    }
+</style>
+<body>
+    <section>
+        <div class="page-card-wrap">
+            <div class="page-card page-card-1 row m-auto">
+                <div class="d-none d-md-block col-2 left"></div>
+                <div class="col-12 col-md-8 middel d-flex flex-column align-items-center justify-content-center h-100">
+                    <div class="w-100 d-flex flex-column align-items-center justify-content-center h-100">
+                        <p class="fs-5 text-primary fw-bolder text-center">ทำให้การสร้างสรรค์ของคุณมีคุณค่ามากขึ้น</p>
+                        <p class="fs-1 fw-bold text-center">ครีเอเตอร์ ค้นหาผู้ที่พร้อมเฉิดฉายไปพร้อมกับพวกเรา</p>
+                        <p class="fs-5"><span class="fs-4 fw-bold">TAIKIP</span> ขายผลงานสร้างสรรค์ของคุณ มีส่วนร่วมกับผู้สนับสนุน</p>
+                        <a href="" class="btn btn-outline-primary border-3 w-75 fs-4 fw-bold mb-4">สมัครตอนนี้</a>
+                        <p class="text-primary fw-bolder">สมัครตอนนี้เพื่อเพลิดเพลินกับการใช้งานฟรี</p>
+                        <p class="text-primary fw-bolder">เปิดรับสิทธิพิเศษในการสร้างสรรค์</p>
+                    </div>
+                </div>
+                <div class="d-none d-md-block col-2 right"></div>
+            </div>
+        </div>
+        <div class="page-card-wrap">
+            <div class="page-card page-card-2 row m-auto">
+                <div class="col-12 col-md-8 row position-relative h-100">
+                    <div class="col-6 h-50 p-2">
+                        <div class="position-relative d-flex align-items-center justify-content-center h-100 bg-secondary rounded-4 overflow-hidden text-light square-lb">
+                            <p class="fs-4 text-center mb-5">พื้นที่เพื่อความบันเทิง</p> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-controller" viewBox="0 0 16 16">
+                                <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z"/>
+                                <path d="M3.051 3.26a.5.5 0 0 1 .354-.613l1.932-.518a.5.5 0 0 1 .62.39c.655-.079 1.35-.117 2.043-.117.72 0 1.443.041 2.12.126a.5.5 0 0 1 .622-.399l1.932.518a.5.5 0 0 1 .306.729c.14.09.266.19.373.297.408.408.78 1.05 1.095 1.772.32.733.599 1.591.805 2.466.206.875.34 1.78.364 2.606.024.816-.059 1.602-.328 2.21a1.42 1.42 0 0 1-1.445.83c-.636-.067-1.115-.394-1.513-.773-.245-.232-.496-.526-.739-.808-.126-.148-.25-.292-.368-.423-.728-.804-1.597-1.527-3.224-1.527-1.627 0-2.496.723-3.224 1.527-.119.131-.242.275-.368.423-.243.282-.494.575-.739.808-.398.38-.877.706-1.513.773a1.42 1.42 0 0 1-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772a2.34 2.34 0 0 1 .433-.335.504.504 0 0 1-.028-.079zm2.036.412c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a13.748 13.748 0 0 0-.748 2.295 12.351 12.351 0 0 0-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 0 0 .426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.504C4.861 9.969 5.978 9.027 8 9.027s3.139.942 3.965 1.855c.164.181.307.348.44.504.214.251.403.472.615.674.318.303.601.468.929.503a.42.42 0 0 0 .426-.241c.18-.408.265-1.02.243-1.776a12.354 12.354 0 0 0-.339-2.406 13.753 13.753 0 0 0-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27-1.036 0-2.063.091-2.913.27z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="col-6 h-50 p-2">
+                        <div class="position-relative d-flex align-items-center justify-content-center h-100 bg-secondary rounded-4 overflow-hidden text-light square-rb">
+                            <p class="fs-4 text-center mb-5">สร้างผลงานสุดสร้างสรรค์ของตัวเอง</p> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette" viewBox="0 0 16 16">
+                                <path d="M8 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm4 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM5.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                <path d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8zm-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7z"/>
+                            </svg>
+                        </div>
+                        
+                    </div>
+                    <div class="position-absolute page-card-2-title d-flex flex-column align-items-center justify-content-center text-dark rounded-circle p-3">
+                        <p class="fs-1 fw-bold m-0">TAIKIP</p>
+                        <p class="fs-5 text-center m-0"><span class="fs-4 fw-bold">TAIKIP</span> เป็นแพลตฟอร์มโซเชียลมีเดียใหม่ เป็นช่องทางสำหรับคนที่อยากแชร์ผลงานที่ตัวเองชื่นชอบ</p>
+                    </div>
+                    <div class="col-6 h-50 p-2">
+                        <div class="position-relative d-flex align-items-center justify-content-center h-100 bg-secondary rounded-4 overflow-hidden text-light square-lt">
+                            <p class="fs-4 text-center mt-5">ผลงานของคุณจะเป็นที่รู้จักในวงกว้าง</p> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16">
+                                <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199V2.5zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0zm-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9 6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="col-6 h-50 p-2">
+                        <div class="position-relative d-flex align-items-center justify-content-center h-100 bg-secondary rounded-4 overflow-hidden text-light square-rt">
+                            <p class="fs-4 text-center mt-5">ตั้งค่าเป็นรับชมฟรีหรือเสียค่าใช้จ่าย</p> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-exchange" viewBox="0 0 16 16">
+                                <path d="M0 5a5.002 5.002 0 0 0 4.027 4.905 6.46 6.46 0 0 1 .544-2.073C3.695 7.536 3.132 6.864 3 5.91h-.5v-.426h.466V5.05c0-.046 0-.093.004-.135H2.5v-.427h.511C3.236 3.24 4.213 2.5 5.681 2.5c.316 0 .59.031.819.085v.733a3.46 3.46 0 0 0-.815-.082c-.919 0-1.538.466-1.734 1.252h1.917v.427h-1.98c-.003.046-.003.097-.003.147v.422h1.983v.427H3.93c.118.602.468 1.03 1.005 1.229a6.5 6.5 0 0 1 4.97-3.113A5.002 5.002 0 0 0 0 5zm16 5.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0zm-7.75 1.322c.069.835.746 1.485 1.964 1.562V14h.54v-.62c1.259-.086 1.996-.74 1.996-1.69 0-.865-.563-1.31-1.57-1.54l-.426-.1V8.374c.54.06.884.347.966.745h.948c-.07-.804-.779-1.433-1.914-1.502V7h-.54v.629c-1.076.103-1.808.732-1.808 1.622 0 .787.544 1.288 1.45 1.493l.358.085v1.78c-.554-.08-.92-.376-1.003-.787H8.25zm1.96-1.895c-.532-.12-.82-.364-.82-.732 0-.41.311-.719.824-.809v1.54h-.005zm.622 1.044c.645.145.943.38.943.796 0 .474-.37.8-1.02.86v-1.674l.077.018z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-card-wrap">
+            <div class="page-card page-card-3 row m-auto">
+                <div class="d-none d-md-block col-6 d-flex align-items-center"></div>
+                <div class="col-12 col-md-6 d-flex align-items-center">
+                    <div class="d-flex flex-column align-items-center w-100 text-dark mx-auto">
+                        <p class="fs-1 text-center fw-bold m-0 mb-3">TAIKIP</p>
+                        <p class="fs-5 text-center m-0"><span class="fs-4 fw-bold">TAIKIP</span> เป็นแพลตฟอร์มโซเชียลมีเดียใหม่ </p>
+                        <p class="fs-5 text-center m-0 mb-3">เป็นช่องทางสำหรับคนที่อยากแชร์ผลงานที่ตัวเองชื่นชอบ</p>
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <button class="btn btn-outline-dark ms-1 mb-3">ไม่จำกัดความยาวคลิป</button>
+                            <button class="btn btn-outline-dark ms-1 mb-3">แสดงความโดดเด่นของตัวเอง</button>
+                            <button class="btn btn-outline-dark ms-1 mb-3">สามารถตั้งราคาคลิปได้เอง</button>
+                            <button class="btn btn-outline-dark ms-1 mb-3">ตรวจเช็ดยอดผู้ติดตามได้</button>
+                            <button class="btn btn-outline-dark ms-1 mb-3">รายได้ขึ้นอยู่กับจำนวนเพชร</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-card-wrap">
+            <div class="page-card page-card-4 row flex-column flex-md-row m-auto">
+                <div class="col-12 col-md-4 row flex-column align-items-center justify-content-center h-100 bg-primary mx-auto p-2 text-light">
+                    <p class="fs-1 fw-bold text-center text-light mb-3">สมัครตอนนี้ ใช้งานได้ฟรีไม่มีข้อจำกัด</p>
+                    <a href="" class="btn btn-outline-light border-3 w-75 fs-4 fw-bold">สมัครตอนนี้</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="d-none d-md-block bi bi-envelope-at" viewBox="0 0 16 16">
+                        <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+                        <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/>
+                    </svg>
+                </div>
+                <div class="d-none d-md-block col-12 col-md-4"></div>
+                <div class="col-12 col-md-4 d-flex align-items-center bg-primary text-light">
+                    <div class="w-100 mx-auto">
+                        <p class="fs-1 text-center fw-bold m-0">ครีเอเตอร์บน TAIKIP</p>
+                        <p class="fs-1 text-center fw-bold m-0 mb-3">ถ่ายทำคลิปได้ทุกประเภทหรือไม่?</p>
+                        <p class="fs-5 text-center m-0 mb-3">สามารถถ่ายทำเนื้อหาได้ทุกประเภท</p>
+                        <p class="fs-5 text-center m-0 mb-3">ไม่มีข้อจำกัด แต่เนื้อหา 18+ ต้องทำตามเงื่อนไขที่เว็บกำหนด</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-card-wrap">
+            <div class="page-card page-card-5 row m-auto">
+                <div class="col-12 col-md-4 p-0">
+                    <div class="position-relative d-flex flex-column align-items-center justify-content-center w-100 rounded-4 overflow-hidden text-dark">
+                        <p class="fs-2 text-end fw-bold mt-4 mb-0">TAIKIP</p>
+                        <p class="fs-2 text-end fw-bold">เหมาะสมกับใคร</p>
+                        <div class="row w-100">
+                            <div class="col-6 text-light px-1">
+                                <div class="position-relative w-100 bg-secondary rounded-2 mb-4 overflow-hidden suitable-box">
+                                    <div class="position-absolute">
+                                        <img class="w-100" src="images/shower.webp" alt="">
+                                        <p class="position-absolute bottom-0 d-flex align-items-center justify-content-center w-100 m-0">ผู้ที่กล้าแสดงออก</p>
+                                    </div>
+                                </div>
+                                <div class="position-relative w-100 bg-secondary rounded-2 mb-4 overflow-hidden suitable-box">
+                                    <div class="position-absolute">
+                                        <img class="w-100" src="images/teacher.webp" alt="">
+                                        <p class="position-absolute bottom-0 d-flex align-items-center justify-content-center w-100 m-0">ครูสอนออนไลน์</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 text-light px-1">
+                                <div class="position-relative w-100 bg-secondary rounded-2 mb-4 overflow-hidden suitable-box">
+                                    <div class="position-absolute">
+                                        <img class="w-100" src="images/youtuber.webp" alt="">
+                                        <p class="position-absolute bottom-0 d-flex align-items-center justify-content-center w-100 m-0">อินฟลูเอนเซอร์</p>
+                                    </div>
+                                </div>
+                                <div class="position-relative w-100 bg-secondary rounded-2 mb-4 overflow-hidden suitable-box">
+                                    <div class="position-absolute">
+                                        <img class="w-100" src="images/singer.webp" alt="">
+                                        <p class="position-absolute bottom-0 d-flex align-items-center justify-content-center w-100 m-0">เน็ตไอดอล นักร้อง นักเต้น</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-card-wrap">
+            <div class="page-card page-card-6 row flex-column flex-md-row m-auto">
+                <div class="col-12 col-md-8 p-2">
+                    <div class="position-relative d-flex flex-column align-items-center justify-content-center w-100 h-100 rounded-4 overflow-hidden text-dark">
+                        <p class="fs-1 text-center fw-bold">คุณลักษณะของแพลตฟอร์ม</p>
+                        <ol class="m-0">
+                            <li class="fs-5">ฟังก์ชั่นพิเศษหลังการซื้อ ขายผลงานสร้างสรรค์ของคุณ เพียงคลิปเดียวก็มีรายได้</li>
+                            <li class="fs-5">ฟังก์ชั่นบันทึกรายรับ หลากหลายช่องทางการรับ-จ่าย</li>
+                            <li class="fs-5">ฟังก์ชั่นการพูดคุยกับกับแฟนคลับ แฟนคลับคือเพื่อน รีบพูดคุยกับแฟนคลับตอนนี้เลย</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 row m-auto h-100 p-2">
+                    <div class="position-relative d-flex flex-column align-items-center justify-content-center w-100 h-100 bg-primary rounded-4 overflow-hidden text-light">
+                        <p class="fs-1 fw-bold text-center text-light mb-3">สมัครตอนนี้ ใช้งานได้ฟรีไม่มีข้อจำกัด</p>
+                        <a href="" class="btn btn-outline-light border-3 w-75 fs-4 fw-bold">สมัครตอนนี้</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="d-none d-md-block bi bi-envelope-at" viewBox="0 0 16 16">
+                            <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+                            <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <script>
+
+        let isScrolling = false;
+        let scrollWrap = document.querySelector('section');
+        let scrollNum = document.querySelectorAll('.page-card-wrap').length - 1;
+        let translateX = 0;
+        let moveX = 0;
+
+        let startY = 0; // 记录触摸开始的Y坐标
+
+        // 添加触摸事件监听器
+        document.addEventListener('touchstart', function (e) {
+            startY = e.touches[0].clientY; // 记录触摸开始的Y坐标
+        });
+
+        document.addEventListener('touchend', function (e) {
+            let endY = e.changedTouches[0].clientY; // 记录触摸结束的Y坐标
+            let touchdeltaY = endY - startY; // 计算Y坐标的变化量
+
+            handleScroll(e,touchdeltaY)
+        });
+
+        let canScroll = true;
+
+        function handleScroll(e,touchdeltaY) {
+            if (!canScroll) {
+                return;
+            }
+
+            let currentScrollY = 0;
+
+            if(touchdeltaY){
+                currentScrollY = touchdeltaY;
+            }else{
+                if(Math.abs(e.deltaY) > 50){
+                    currentScrollY = e.deltaY;
+                }else{
+                    return
+                }
+            }
+
+            let scrollDirection = '';
+            if (translateX <= 0) {
+                if (currentScrollY > 0) {
+                    return;
+                } else if (currentScrollY < 0) {
+                    translateX++
+                }
+            } else if (translateX >= scrollNum) {
+                if (currentScrollY > 0) {
+                    translateX--
+                } else if (currentScrollY < 0) {
+                    return;
+                }
+            } else {
+                if (currentScrollY > 0) {
+                    translateX--
+                } else if (currentScrollY < 0) {
+                    translateX++
+                }
+            }
+            moveX = 'translateX(' + -(translateX * 100) + 'vw)';
+            scrollWrap.style.transform = moveX;
+
+            canScroll = false;
+
+            // 使用 setTimeout 来启用下一次滚动事件处理程序
+            setTimeout(function() {
+                canScroll = true;
+            }, 500); // 500毫秒内不会触发第二次事件处理程序
+        }
+
+
+        let resizeTimer; // 声明一个计时器变量
+
+        // 綁定事件處理函數到滑動事件
+        window.addEventListener('wheel', function(e){
+            clearTimeout(resizeTimer); // 在窗口调整时清除之前的计时器
+            resizeTimer = setTimeout(handleScroll(e), 500); // 设置一个适当的延迟时间，例如500毫秒
+        })
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

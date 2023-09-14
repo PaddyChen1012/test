@@ -1,0 +1,45 @@
+.popup-bg-one {
+    border: 2px solid #bd6609;
+    border-radius: 5px;
+    background: url(/milyon88-background.jpg) center/contain #053112;
+    -webkit-box-shadow: inset 0 0 2px 2px #f3bd39, inset 0 0 1px 2px #59200a, inset 0 0 2px 4px #bd6609;
+    box-shadow: inset 0 0 2px 2px #f3bd39, inset 0 0 1px 2px #59200a, inset 0 0 2px 4px #bd6609;
+}
+
+.equal-promotion-detail-block .promo-content div {
+    background: linear-gradient(180deg, #e9a223 0%, #f9eb8c 50%, #b65c18 100%);
+    margin: 0px 0px 24px 0px;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 1px #fda900, inset 0 0 8px 0 #fda900;
+}
+
+.equal-promotion-detail-block .promo-content p span {
+    color: #fff;
+}
+
+.friendlink-menu-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+    border: 2px solid #BD661B;
+    -webkit-box-shadow: inset 0 0 2px 2px #f3bd39, inset 0 0 1px 2px #59200a, inset 0 0 2px 4px #bd6609;
+    box-shadow: inset 0 0 2px 2px #f3bd39, inset 0 0 1px 2px #59200a, inset 0 0 2px 4px #bd6609;
+}
+
+.friendlink-menu-nav:hover {
+    background: #f3bd39;
+    border: 5px solid #f3bd39;
+    -webkit-box-shadow: 0 0 20px 1px #bd6609;
+    box-shadow: 0 0 20px 1px #bd6609;
+}
+
+.blockContent img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-filter: drop-shadow(0px 0px 5px #fda900);
+    border-radius: 5px;
+    width: 100%;
+}

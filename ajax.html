@@ -46,59 +46,59 @@
 
         // 取得資料
         function getData() {
-        axios.get(path)
-        .then(res => {
-            console.log(res.data);
-            showText(res.data, 'GET');
-        })
-        .catch(error => {
-            console.log(error.response);
-        });
+            axios.get(path)
+            .then(res => {
+                console.log(res.data);
+                showText(res.data, 'GET');
+            })
+            .catch(error => {
+                console.log(error.response);
+            });
         }
 
         // 新增資料
         function addToCart() {
-        axios.post(path, data)
-        .then(res => {
-            console.log(res.data);
-            showText(res.data, 'POST');
-        })
-        .catch(error => {
-            console.log(error.response);
-            showText(error.response, 'POST 失敗');
-        });
+            axios.post(path, data)
+            .then(res => {
+                console.log(res.data);
+                showText(res.data, 'POST');
+            })
+            .catch(error => {
+                console.log(error.response);
+                showText(error.response, 'POST 失敗');
+            });
         }
 
         // 更新資料
         function updateCart() {
-        axios.patch(path, data)
-        .then(res => {
-            console.log(res.data);
-            showText(res.data, 'PATCH');
-        })
-        .catch(error => {
-            console.log(error.response);
-            showText(error.response, 'PATCH 失敗');
-        });
+            axios.patch(path, data)
+            .then(res => {
+                console.log(res.data);
+                showText(res.data, 'PATCH');
+            })
+            .catch(error => {
+                console.log(error.response);
+                showText(error.response, 'PATCH 失敗');
+            });
         }
 
         // 刪除所有購物車品項
         function delAllData() {
         axios.delete(`https://course-ec-api.hexschool.io/api/${uuid}/ec/shopping/all/product`)
             .then(res => {
-            console.log(res.data);
-            showText(res.data, 'DELETE');
+                console.log(res.data);
+                showText(res.data, 'DELETE');
             })
             .catch(error => {
-            console.log(error.response);
-            showText(error.response, 'DELETE 失敗');
+                console.log(error.response);
+                showText(error.response, 'DELETE 失敗');
             });
         }
 
         function showText(data, method) {
-        msg = `--- ${method} --- ${ new Date() } \n ${JSON.stringify(data)} \n ${msg}`;
-        msgBlock.innerText = msg;
-}
+            msg = `--- ${method} --- ${ new Date() } \n ${JSON.stringify(data)} \n ${msg}`;
+            msgBlock.innerText = msg;
+        }
     </script>
 </body>
 </html>

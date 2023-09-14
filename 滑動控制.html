@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #box{
+            width: 100%;
+            height: 300vh;
+            background: #ff0;
+        }
+        #img{
+            position: fixed;
+            left: 50%;
+            width: 100%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <img id="img" src="images/L.png">
+    <script>
+        let img = document.querySelector('#img')
+        let allY = document.querySelector('#box').scrollHeight
+        let viewY = window.innerHeight
+        let moveY = allY - viewY
+        window.onload = function(){
+            img.style.bottom = -img.offsetHeight + 'px'
+        }
+        // 節流函數
+        function throttle (fn, delay) {
+            let baseTime = 0
+            return function () {
+                const currentTime = Date.now()
+                if (baseTime + delay < currentTime) {
+                fn.apply(this, arguments)
+                baseTime = currentTime
+                }
+            }
+        }
+        // touchStartY = 0
+        // document.addEventListener('touchstart', event => {
+        //     touchStartY = event.touches[0].pageY
+        // })
+        var handleTouchEnd = throttle(touchEnd, 0)
+        document.addEventListener('touchmove', handleTouchEnd)
+        function touchEnd (e) {
+            img.style.bottom = -img.offsetHeight + img.offsetHeight*(window.pageYOffset/moveY) + 'px'
+        }
+    </script>
+</body>
+</html>
