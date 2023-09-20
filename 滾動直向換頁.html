@@ -132,20 +132,16 @@
     }
 
     .page-card-4>div:nth-child(1),
-    .page-card-4>div:nth-child(3){
+    .page-card-4>div:nth-child(3),
+    .page-card-6>div:nth-child(1),
+    .page-card-6>div:nth-child(3){
         border-radius: 10px;
         box-shadow: 10px 10px 20px rgba(0,0,0,.25);
     }
     .page-card-4>div:nth-child(1){
         background:  linear-gradient(315deg, rgba(202, 100, 139, .875) 0% 100%), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat -32px/100vw;
     }
-    .page-card-6>div{
-        border-radius: 10px;
-        box-shadow: 10px 10px 20px rgba(0,0,0,.25);
-    }
-    .page-card-6>div:nth-child(3){
-        margin: 0 0 0 8px;
-    }
+
     @media screen and (max-width:767px) {
         body {
             background: url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center/auto 100vh;
@@ -157,8 +153,13 @@
             width: calc(100% - 16px);
             height: calc(100% - 16px);
         }
-        .page-card-1, .page-card-2, .page-card-5 {
+        .page-card-2, .page-card-5 {
             background: linear-gradient(180deg, rgba(255 , 255, 255, 0) 10%, rgba(255 , 255, 255, .65) 15%), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center/auto 100vh;
+        }
+        .page-card-1{
+            background: url(images/TAIKIP_0130_mobile.webp)no-repeat center/contain;
+            box-shadow: none;
+            padding: 0 5vh;
         }
         .page-card-2>div:nth-child(2){
             position: absolute !important;
@@ -220,6 +221,10 @@
         .bg-custom-1{
             background: linear-gradient(-7.5deg, #fff3f8 40%, transparent 75%);
         }
+        .web-main .bi-person-plus-fill{
+            width: 120px;
+            height: 120px;
+        }
     }
     .text-primary{
         color: rgba(202, 100, 139, 1) !important;
@@ -238,18 +243,18 @@
     }
 </style>
 <body>
-    <section>
+    <section class="web-main">
         <div class="page-card-wrap">
-            <div class="page-card page-card-1 row m-auto">
+            <div class="page-card page-card-1 row m-auto align-items-center">
                 <div class="d-none d-md-block col-2 left"></div>
-                <div class="col-12 col-md-8 middel d-flex flex-column align-items-center justify-content-center h-100">
+                <div class="col-12 col-md-8 middel d-flex flex-column align-items-center justify-content-center">
                     <div class="w-100 d-flex flex-column align-items-center justify-content-center h-100">
                         <p class="fs-5 text-primary fw-bolder text-center">ทำให้การสร้างสรรค์ของคุณมีคุณค่ามากขึ้น</p>
                         <p class="fs-1 fw-bold text-center">ครีเอเตอร์ ค้นหาผู้ที่พร้อมเฉิดฉายไปพร้อมกับพวกเรา</p>
                         <p class="fs-5"><span class="fs-4 fw-bold">TAIKIP</span> ขายผลงานสร้างสรรค์ของคุณ มีส่วนร่วมกับผู้สนับสนุน</p>
                         <a href="" class="btn btn-outline-primary border-3 w-75 fs-4 fw-bold mb-4">สมัครตอนนี้</a>
-                        <p class="text-primary fw-bolder">สมัครตอนนี้เพื่อเพลิดเพลินกับการใช้งานฟรี</p>
-                        <p class="text-primary fw-bolder">เปิดรับสิทธิพิเศษในการสร้างสรรค์</p>
+                        <p class="text-primary fw-bolder text-center">สมัครตอนนี้เพื่อเพลิดเพลินกับการใช้งานฟรี</p>
+                        <p class="text-primary fw-bolder text-center">เปิดรับสิทธิพิเศษในการสร้างสรรค์</p>
                     </div>
                 </div>
                 <div class="d-none d-md-block col-2 right"></div>
@@ -324,14 +329,14 @@
         <div class="page-card-wrap">
             <div class="page-card page-card-4 row flex-column flex-md-row m-auto">
                 <div class="col-12 col-md-4 position-relative row flex-column align-items-center justify-content-center h-100 bg-primary mx-auto p-2 text-light">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-envelope-at" viewBox="0 0 16 16">
-                        <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
-                        <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
                     </svg>
                     <p class="fs-2 fw-bold text-center text-light mb-3">สมัครตอนนี้ ใช้งานได้ฟรีไม่มีข้อจำกัด</p>
                     <a href="" class="btn btn-outline-light border-3 w-75 fs-4 fw-bold">สมัครตอนนี้</a>
                 </div>
-                <div class="align-items-center col-12 col-md-4"><img class="w-100" src="images/TAIKIP_04_1200x1200.webp" alt=""></div>
+                <div class="d-flex align-items-center col-12 col-md-4"><img class="w-100" src="images/TAIKIP_04_1200x1200.webp" alt=""></div>
                 <div class="col-12 col-md-4 d-flex align-items-center">
                     <div class="w-100 mx-auto">
                         <p class="fs-2 text-center fw-bold m-0">ครีเอเตอร์บน </p>
@@ -388,57 +393,25 @@
             </div>
         </div>
         <div class="page-card-wrap">
-            <div class="page-card page-card-6 row flex-column flex-md-row justify-content-around m-auto">
-                <div class="col-12 col-md-4 p-2">
-                    <div class="position-relative d-flex flex-column align-items-center justify-content-center w-100 h-100 rounded-4 overflow-hidden text-dark">
-                        <p class="fs-1 text-center fw-bold lh-sm">คุณลักษณะของแพลตฟอร์ม</p>
-                        <ol class="m-0">
-                            <li class="fs-5">ฟังก์ชั่นพิเศษหลังการซื้อ ขายผลงานสร้างสรรค์ของคุณ เพียงคลิปเดียวก็มีรายได้</li>
-                            <li class="fs-5">ฟังก์ชั่นบันทึกรายรับ หลากหลายช่องทางการรับ-จ่าย</li>
-                            <li class="fs-5">ฟังก์ชั่นการพูดคุยกับกับแฟนคลับ แฟนคลับคือเพื่อน รีบพูดคุยกับแฟนคลับตอนนี้เลย</li>
-                        </ol>
-                    </div>
+            <div class="page-card page-card-6 row flex-column flex-md-row m-auto">
+                <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center">
+                    <p class="fs-1 text-center fw-bold lh-sm">คุณลักษณะของแพลตฟอร์ม</p>
+                    <ol class="m-0">
+                        <li class="fs-5">ฟังก์ชั่นพิเศษหลังการซื้อ ขายผลงานสร้างสรรค์ของคุณ เพียงคลิปเดียวก็มีรายได้</li>
+                        <li class="fs-5">ฟังก์ชั่นบันทึกรายรับ หลากหลายช่องทางการรับ-จ่าย</li>
+                        <li class="fs-5">ฟังก์ชั่นการพูดคุยกับกับแฟนคลับ แฟนคลับคือเพื่อน รีบพูดคุยกับแฟนคลับตอนนี้เลย</li>
+                    </ol>
                 </div>
-                <div class="align-items-center col-12 col-md-4"><img class="w-100" src="images/TAIKIP_04_1200x1200.webp" alt=""></div>
-                <div class="col-12 col-md-4 row flex-column align-items-center justify-content-center h-100 bg-primary p-2 text-light">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-envelope-at" viewBox="0 0 16 16">
-                        <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
-                        <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/>
+                <div class="d-flex align-items-center col-12 col-md-4"><img class="w-100" src="images/TAIKIP_04_1200x1200.webp" alt=""></div>
+                <div class="col-12 col-md-4 position-relative row flex-column align-items-center justify-content-center h-100 bg-primary mx-auto p-2 text-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
                     </svg>
                     <p class="fs-2 fw-bold text-center text-light mb-3">สมัครตอนนี้ ใช้งานได้ฟรีไม่มีข้อจำกัด</p>
                     <a href="" class="btn btn-outline-light border-3 w-75 fs-4 fw-bold">สมัครตอนนี้</a>
                 </div>
             </div>
-            <!-- <div class="page-card page-card-6 row flex-column flex-md-row m-auto">
-                <div class="col-12 col-md-8 p-2">
-                    <div class="position-relative d-flex flex-column align-items-center justify-content-center w-100 h-100 rounded-4 overflow-hidden text-dark">
-                        <p class="fs-1 text-center fw-bold">คุณลักษณะของแพลตฟอร์ม</p>
-                        <ol class="m-0">
-                            <li class="fs-5">ฟังก์ชั่นพิเศษหลังการซื้อ ขายผลงานสร้างสรรค์ของคุณ เพียงคลิปเดียวก็มีรายได้</li>
-                            <li class="fs-5">ฟังก์ชั่นบันทึกรายรับ หลากหลายช่องทางการรับ-จ่าย</li>
-                            <li class="fs-5">ฟังก์ชั่นการพูดคุยกับกับแฟนคลับ แฟนคลับคือเพื่อน รีบพูดคุยกับแฟนคลับตอนนี้เลย</li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 row m-auto h-100 p-2">
-                    <div class="position-relative d-flex flex-column align-items-center justify-content-center w-100 h-100 bg-primary rounded-4 overflow-hidden text-light">
-                        <p class="fs-1 fw-bold text-center text-light mb-3">สมัครตอนนี้ ใช้งานได้ฟรีไม่มีข้อจำกัด</p>
-                        <a href="" class="btn btn-outline-light border-3 w-75 fs-4 fw-bold">สมัครตอนนี้</a>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="d-none d-md-block bi bi-envelope-at" viewBox="0 0 16 16">
-                            <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
-                            <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 row flex-column align-items-center justify-content-center h-100 bg-primary mx-auto p-2 text-light">
-                    <p class="fs-2 fw-bold text-center text-light mb-3">สมัครตอนนี้ ใช้งานได้ฟรีไม่มีข้อจำกัด</p>
-                    <a href="" class="btn btn-outline-light border-3 w-75 fs-4 fw-bold">สมัครตอนนี้</a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="d-none d-md-block bi bi-envelope-at" viewBox="0 0 16 16">
-                        <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
-                        <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/>
-                    </svg>
-                </div>
-            </div> -->
         </div>
         
     </section>
@@ -482,7 +455,7 @@
             let currentScrollY = 0;
 
             if(touchdeltaY){
-                currentScrollY = touchdeltaY;
+                currentScrollY = -touchdeltaY;
             }else{
                 if(Math.abs(e.deltaY) > 50){
                     currentScrollY = e.deltaY;
