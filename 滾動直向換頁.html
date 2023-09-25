@@ -133,14 +133,14 @@
     .page-card-4>a:nth-child(1),
     .page-card-4>div:nth-child(3),
     .page-card-6>div:nth-child(1),
-    .page-card-6>div:nth-child(3){
+    .page-card-6>a:nth-child(3){
         border-radius: 10px;
         box-shadow: 10px 10px 20px rgba(0,0,0,.25);
     }
-    .page-card-4>a:nth-child(1){
+    /* .page-card-4>a:nth-child(1){
         background:  linear-gradient(315deg, rgba(202, 100, 139, .875) 0% 100%), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat -32px/100vw;
         border: 8px solid #472646;
-    }
+    } */
 
     .btn-page-4-wd{
         bottom: 0;
@@ -176,7 +176,7 @@
         color: transparent;
     }
     .bg-join-us{
-        background: url(images/8953efee2ec9528e814b25ee99f5ddf0.jpg)no-repeat center/cover;
+        background: #ffdeda  url(images/v999-30.webp)no-repeat center/contain;
     }
     .btn-page-6{
         position: relative;
@@ -268,9 +268,9 @@
         .page-card-6>*{
             flex: 1;
         }
-        .page-card-4>div:nth-child(1){
+        .page-card-4>a:nth-child(1){
             margin-bottom: 8px;
-            background: linear-gradient(180deg, rgba(202, 100, 139, 0) 0%, rgba(202, 100, 139, .875) 30%), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center -8px/auto 100vh;
+            /* background: linear-gradient(180deg, rgba(202, 100, 139, 0) 0%, rgba(202, 100, 139, .875) 30%), url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center -8px/auto 100vh; */
         }
         .page-card-4>div:nth-child(2),
         .page-card-6>div:nth-child(2){
@@ -281,7 +281,7 @@
         }
         .page-card-4>div:nth-child(2){bottom: 0;}
         .page-card-6>div:nth-child(2){top: 0;}
-        .page-card-6>div:nth-child(3){
+        .page-card-6>a:nth-child(3){
             margin: 8px 0 0;
         }
         .page-card-4 .bi-envelope-at,
@@ -357,7 +357,10 @@
                     </div>
                     <div class="position-absolute order-md-1 page-card-2-title d-flex flex-column align-self-end align-items-center justify-content-end justify-content-md-center text-dark rounded-circle p-3">
                         <p class="fs-1 fw-bold m-0">TAIKIP</p>
-                        <p class="fs-5 text-center m-0">เป็นแพลตฟอร์มโซเชียลมีเดียใหม่ เป็นช่องทางสำหรับคนที่อยากแชร์ผลงานที่ตัวเองชื่นชอบ</p>
+                        <p class="fs-5 text-center m-0">เป็นแพลตฟอร์มโซเชียล</p>
+                        <p class="fs-5 text-center m-0">มีเดียใหม่ เป็นช่องทางสำหรับ</p>
+                        <p class="fs-5 text-center m-0">คนที่อยากแชร์ผลงาน</p>
+                        <p class="fs-5 text-center m-0">ที่ตัวเองชื่นชอบ</p>
                     </div>
                     <div class="order-1 col-6 p-2">
                         <div class="position-relative d-flex flex-column align-items-center justify-content-center h-100 rounded-4 overflow-hidden text-light square-lt">
@@ -405,10 +408,10 @@
         </div>
         <div class="page-card-wrap">
             <div class="page-card page-card-4 row flex-column flex-md-row m-auto">
-                <a href="" class="col-12 col-md-4 position-relative row flex-column align-items-center justify-content-center h-100 mx-auto p-2 text-decoration-none">
-                    <img class="ph-absolute w-100" src="images/join-us-1.webp" alt="">
+                <a href="" class="col-12 col-md-4 position-relative row flex-column align-items-center justify-content-center h-100 bg-join-us mx-auto p-2 text-decoration-none">
+                    <!-- <img class="ph-absolute w-100" src="images/join-us-1.webp" alt=""> -->
                     <p class="fs-2 fw-bold text-center title-custom mb-3">สมัครตอนนี้ ใช้งานได้ฟรี</p>
-                    <p class="fs-2 fw-bold text-center title-custom mb-3">ไม่มีข้อจำกัด</p>
+                    <p class="fs-2 fw-bold text-center title-custom mb-0">ไม่มีข้อจำกัด</p>
                     <p class="position-absolute text-center text-light m-0 btn-page-4-wd">สมัครตอนนี้</p>
                 </a>
                 <div class="d-flex align-items-center col-12 col-md-4"><img class="w-100" src="images/TAIKIP_04_1200x1200.webp" alt=""></div>
@@ -474,26 +477,29 @@
                 <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center">
                     <p class="fs-1 text-center font-style-2 fw-bold lh-sm">คุณลักษณะของแพลตฟอร์ม</p>
                     <ol class="m-0">
-                        <li class="fs-5">
-                            <p>ฟังก์ชั่นพิเศษหลังการซื้อ ขายผลงานสร้างสรรค์</p>
-                            <p>ของคุณ เพียงคลิปเดียวก็มีรายได้</p>
+                        <li class="fs-5 mb-1">
+                            <p class="mb-1">ฟังก์ชั่นพิเศษหลังการซื้อ ขายผลงาน</p>
+                            <p class="mb-1">สร้างสรรค์ของคุณ เพียงคลิปเดียว</p>
+                            <p class="mb-1">ก็มีรายได้</p>
                         </li>
-                        <li class="fs-5">
-                            <p>ฟังก์ชั่นบันทึกรายรับ หลากหลายช่องทาง</p>
-                            <p>การรับ-จ่าย</p>
+                        <li class="fs-5 mb-1">
+                            <p class="mb-1">ฟังก์ชั่นบันทึกรายรับ หลากหลาย</p>
+                            <p class="mb-1">ช่องทางการรับ-จ่าย</p>
                         </li>
-                        <li class="fs-5">
-                            <p>ฟังก์ชั่นการพูดคุยกับกับแฟนคลับ </p>
-                            <p>แฟนคลับคือเพื่อน รีบพูดคุยกับแฟนคลับตอนนี้เลย</p>
+                        <li class="fs-5 mb-1">
+                            <p class="mb-1">ฟังก์ชั่นการพูดคุยกับแฟนคลับ</p>
+                            <p class="mb-1">แฟนคลับคือเพื่อน รีบพูดคุยกับ</p>
+                            <p class="mb-1">แฟนคลับตอนนี้เลย</p>
                         </li>
                     </ol>
                 </div>
                 <div class="d-flex align-items-center col-12 col-md-4"><img class="w-100" src="images/TAIKIP_04_1200x1200.webp" alt=""></div>
-                <div class="col-12 col-md-4 position-relative row flex-column align-items-center justify-content-start h-100 bg-join-us mx-auto p-0">
-                    <p class="fs-2 fw-bold text-center title-custom mt-3 mb-0">สมัครตอนนี้</p>
-                    <p class="fs-2 fw-bold text-center title-custom">ใช้งานได้ฟรีไม่มีข้อจำกัด</p>
-                    <a href="" class="btn btn-page-6 border-3 fs-4 fw-bold"><div class="btn-page-6-wd d-flex align-items-center justify-content-center">สมัครตอนนี้</div></a>
-                </div>
+                <a href="" class="col-12 col-md-4 position-relative row flex-column align-items-center justify-content-center h-100 bg-join-us mx-auto p-2 text-decoration-none">
+                    <!-- <img class="ph-absolute w-100" src="images/join-us-1.webp" alt=""> -->
+                    <p class="fs-2 fw-bold text-center title-custom mb-3">สมัครตอนนี้ ใช้งานได้ฟรี</p>
+                    <p class="fs-2 fw-bold text-center title-custom mb-0">ไม่มีข้อจำกัด</p>
+                    <p class="position-absolute text-center text-light m-0 btn-page-4-wd">สมัครตอนนี้</p>
+                </a>
             </div>
         </div>
         
