@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API TEST</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="test-results"></div>
+    <script>
+        $(document).ready(function() {
+            var apiUrl = 'https://short777-ice.xav69.com/pay69api.php';
+            $.ajax({
+                url: apiUrl,
+                type: 'GET',
+                dataType: 'json',
+                data: { memberId: '007Nuk007' },
+                success: function(data) {
+                    if (data && Array.isArray(data)) {
+                        $('#test-results').text('API OK');
+                        console.log(data); 
+                    } else {
+                        $('#test-results').text('API BAD');
+                    }
+                },
+                error: function() {
+                    $('#test-results').text('API Error');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
