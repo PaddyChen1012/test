@@ -65,10 +65,10 @@
     }
 
     .page-card-1 .left{
-        background: url(./images/taikip-phone-r.webp)no-repeat left/auto 90%;
+        background: url(./images/taikip-phone.webp)no-repeat 100%/auto 90%;
     }
     .page-card-1 .right{
-        background: url(./images/taikip-phone-l.webp)no-repeat right/auto 90%;
+        background: url(./images/taikip-phone.webp)no-repeat 0%/auto 90%;
     }
 
     .page-card-2-title{
@@ -217,6 +217,45 @@
         box-shadow: 0 0 10px #666 inset, 4px 4px 0px #666;
     }
 
+    @media screen and (min-width: 768px) and (max-width: 919px){
+        .page-card-1,.page-card-2,.page-card-3,.page-card-4,.page-card-5,.page-card-6{
+            flex-direction: column !important;
+        }
+        .page-card-1>div,.page-card-2>div,.page-card-3>*,.page-card-4>*,.page-card-5>*,.page-card-6>*{
+            flex: 1;
+            width: 100%;
+        }
+        .page-card-4>*:nth-child(1),.page-card-6>*:nth-child(1){
+            margin-bottom: 8px;
+        }
+        .page-card-4>*:nth-child(2),.page-card-6>*:nth-child(2){
+            position: absolute;
+            z-index: -1;
+        }
+        .page-card-2>div:nth-child(1){
+            order: 1;
+        }
+        .page-card-1 .left{
+            background: url(./images/taikip-phone.webp)no-repeat center 105%/60%;
+        }
+        .page-card-1 .right{
+            background: url(./images/taikip-phone.webp)no-repeat center -5%/60%;
+        }
+        .page-card-3 {
+            background: linear-gradient(315deg, rgba(202, 100, 139, 1) 50%, rgba(0,0,0,0) 50%), url(images/TAIKIP_01_1200x1200.webp)no-repeat top/contain;
+            border-radius: 10px;
+            box-shadow: 10px 10px 20px rgba(0,0,0,.25);
+        }
+        .page-card-3>div:nth-child(1){
+            display: none !important;
+        }
+        .page-card-3>div:nth-child(2){
+            width: 100%;
+            align-items: flex-end !important;
+            padding-bottom: 15%;
+        }
+    }
+
     @media screen and (max-width:767px){
         body {
             background: url(images/TAIKIP_0130_01_1920x1080_nologo.webp)no-repeat center/auto 100vh;
@@ -259,6 +298,9 @@
         }
         .page-card-3 {
             background: linear-gradient(330deg, rgba(202, 100, 139, 1) 50%, rgba(0,0,0,0) 50%), url(images/TAIKIP_01_1200x1200.webp)no-repeat top/contain;
+        }
+        .page-card-3>div:nth-child(2){
+            padding-bottom: 0;
         }
         .page-card-4>*,
         .page-card-6>*{
@@ -375,6 +417,7 @@
         border: 4px solid #f8e12c;
         color: #f57823;
         font-size: 1.25rem;
+        background: rgba(0,0,0,0.75);
         box-shadow: 0 0 10px #f57823 inset, 0px 0px 0px #f57823;
         transition: all .2s ease;
     }
@@ -560,6 +603,11 @@
         55%{right: 100%;transform: scale(1) rotateY(180deg);}
         95%,100%{right: -20%;transform: scale(0.5) rotateY(180deg);}
     }
+    @media screen and (min-width: 768px) and (max-width: 919px){
+        .halloween .page-card-3 {
+            background: linear-gradient(315deg,rgba(141 81 42) 0%, rgba(248 145 53) 50%, rgba(0,0,0,0) 50%), url(images/TAIKIP_01_1200x1200.webp)no-repeat top/contain
+        }
+    }
     @media screen and (max-width:767px) {
         body.halloween {
             background: url(images/hollwen-bg.webp)no-repeat center/auto 100vh;
@@ -573,9 +621,6 @@
         }
         .grim-reaper{
             z-index: 2;
-        }
-        .halloween .page-card-3 {
-            background: linear-gradient(315deg,rgba(141 81 42) 0%, rgba(248 145 53) 50%, rgba(0,0,0,0) 50%), url(images/TAIKIP_01_1200x1200.webp)no-repeat top/contain
         }
         .ghost-1{
             bottom: 415px;
@@ -592,9 +637,9 @@
 <body class="halloween">
     <section class="web-main">
         <div class="page-card-wrap">
-            <div class="page-card page-card-1 row m-auto align-items-center active">
+            <div class="page-card page-card-1 row m-auto active">
                 <img class="position-absolute halloween-witch" src="images/witch.webp" alt="">
-                <div class="d-none d-md-block col-2 left h-100"></div>
+                <div class="d-none d-md-block col-2 left"></div>
                 <div class="col-12 col-md-8 middel d-flex flex-column align-items-center justify-content-center">
                     <div class="w-100 d-flex flex-column align-items-center justify-content-center h-100">
                         <p class="fs-5 text-primary fw-bolder text-center">ทำให้การสร้างสรรค์ของคุณมีคุณค่ามากขึ้น</p>
@@ -606,12 +651,12 @@
                         <p class="text-primary fw-bolder text-center">เปิดรับสิทธิพิเศษในการสร้างสรรค์</p>
                     </div>
                 </div>
-                <div class="d-none d-md-block col-2 right h-100"></div>
+                <div class="d-none d-md-block col-2 right"></div>
             </div>
         </div>
         <div class="page-card-wrap">
             <div class="page-card page-card-2 row m-auto overflow-hidden">
-                <div class="col-12 col-md-7 row position-relative h-100">
+                <div class="col-12 col-md-7 row position-relative">
                     <div class="order-1 col-6 p-2">
                         <div class="position-relative d-flex flex-column align-items-center justify-content-center h-100 rounded-4 overflow-hidden text-light square-lb">
                             <p class="fs-4 text-dark text-center m-0">พื้นที่เพื่อ</p>
@@ -662,7 +707,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-5 position-relative d-flex align-items-start align-items-md-center position-relative h-100">
+                <div class="col-12 col-md-5 position-relative d-flex align-items-start align-items-md-center position-relative">
                     <img class="w-100" src="images/TAIKIP_03_1200x1200.webp" alt="">
                     <img class="position-absolute grim-reaper" src="images/c3b6a4fb866db1b7357d92608917895f.webp" alt="">
                 </div>
@@ -690,14 +735,14 @@
         </div>
         <div class="page-card-wrap">
             <div class="page-card page-card-4 row flex-column flex-md-row m-auto">
-                <a href="" class="col-12 col-md-4 position-relative row flex-column align-items-center justify-content-center h-100 bg-join-us mx-auto p-2 text-decoration-none">
+                <a href="" class="col-12 col-md-4 position-relative row flex-column align-items-center justify-content-center bg-join-us mx-auto p-2 text-decoration-none test">
                     <!-- <img class="ph-absolute w-100" src="images/join-us-1.webp" alt=""> -->
                     <p class="fs-2 fw-bold text-center title-custom mb-3">สมัครตอนนี้ ใช้งานได้ฟรี</p>
                     <p class="fs-2 fw-bold text-center title-custom mb-0">ไม่มีข้อจำกัด</p>
                     <p class="position-absolute text-center text-light m-0 btn-page-4-wd">สมัครตอนนี้</p>
                 </a>
-                <div class="d-flex align-items-center col-12 col-md-4"><img class="w-100 halloween-house" src="images/halloween_house.webp" alt=""></div>
-                <div class="col-12 col-md-4 d-flex align-items-center">
+                <div class="d-flex align-items-center col-12 col-md-4 test"><img class="w-100 halloween-house" src="images/halloween_house.webp" alt=""></div>
+                <div class="col-12 col-md-4 d-flex align-items-center test">
                     <div class="w-100 mx-auto">
                         <p class="fs-2 text-center font-style-2 fw-bold m-0">ครีเอเตอร์บน <span class="fs-1 fw-bold">TAIKIP</span></p>
                         <p class="fs-2 text-center font-style-2 fw-bold m-0">ถ่ายทำคลิป</p>
@@ -882,6 +927,26 @@
             clearTimeout(resizeTimer); // 在窗口调整时清除之前的计时器
             resizeTimer = setTimeout(handleScroll(e), 500); 
         })
+
+        // 检测是否是移动设备
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+        // 创建一个媒体查询，检查视口宽度
+        const isMobile = window.matchMedia('(max-width: 767px)').matches; // 假设小于767px的设备是手机
+        const isLandscape = window.matchMedia('(orientation: landscape)').matches;
+
+        window.addEventListener('resize', function(){
+            if (isMobileDevice()) {
+                if (isMobile) {
+                } else {
+                    if (isLandscape) {
+                    } else {
+                        console.log('设备处于纵向方向');
+                    }
+                }
+            }
+        });
 
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
