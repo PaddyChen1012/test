@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script id="bfwone" data="dep=jquery.17&err=0" type="text/javascript" src="http://repo.bfw.wiki/bfwrepo/js/bfwone.js"></script>
+    <!-- 引入 video.js 样式 -->
+    <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet">
+    <!-- 引入 video.js 脚本 -->
+    <script async src="https://vjs.zencdn.net/7.15.4/video.js"></script>
+    <!-- 引入 videojs-contrib-hls 插件 -->
+    <script src="https://unpkg.com/videojs-contrib-hls@5.15.0/dist/videojs-contrib-hls.min.js"></script>
+    <style type="text/css" media="all">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #cont {
+            height: 100vh;
+            width: 100vw;
+            overflow-y: scroll;
+        }
+        .video-box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+        }
+        .video-card{
+            width: 100%;
+            height: 100%;
+        }
+        .video-js{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .video-js .vjs-big-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* transform: translate(-50%, -50%); */
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="cont">
+        <div class="video-box" id="my-videoBox-0" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" data-source="source-0"></div>
+        <div class="video-box" id="my-videoBox-1" data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" data-source="source-1"></div>
+    </div>
+
+    <script type="text/javascript">
+        var autogo = false;//是否还在滚动中，如果滚动中就不执行play
+        var lastscrolltop = 0;//上一次的scrolltop
+        var indexvideo = 0;
+        var player_hls;
+
+        let scrollPlayN = throttle(scrollPlay, 1000);
+        function scrollPlay(event) {
+            play();
+            // console.log(lastscrolltop)
+        }
+
+        bready(function() {
+            play();
+            $("#cont").scroll(scrollPlayN)
+        });
+
+        function play() {
+            if (autogo) {
+                return;
+            }
+
+            if ($('#intro1').length >0){ 
+                $('#intro1').remove();
+            } 
+
+            var scrolltop = $("#cont").scrollTop();
+            var winheight = $(window).height();
+            //获取第几个视频
+            // var indexvideo = Math.ceil(scrolltop/winheight);
+            if (scrolltop < lastscrolltop) {
+                //上翻
+                indexvideo--;
+            }else if (scrolltop == lastscrolltop){
+                indexvideo;
+            }else{
+                indexvideo++;
+                if($('.video-box').length == (indexvideo+1) ){
+                    createpage(indexvideo)
+                }
+            }
+            autogo = true;
+
+            $("#cont").animate({
+                scrollTop: indexvideo*winheight
+            }, 500, function() {
+                console.log(indexvideo*winheight)
+                lastscrolltop = indexvideo*winheight;
+                autogo = false;
+            });
+            createdVideo(indexvideo);
+        }
+
+        function createdVideo(indexvideo){
+            let videoBoxId = '#my-videoBox-' + indexvideo;
+            let thisBox = $(videoBoxId)[0];
+            hlsurl = thisBox.dataset.url;
+            if(player_hls != undefined){
+                player_hls.dispose();
+            }
+            createdom(thisBox.dataset.source, thisBox);
+            playhls(thisBox.dataset.source);
+        }
+
+        function createpage() {
+            let parentDom = $("#cont")[0];
+            // let thisDom = document.getElementById('my-videoBox-' + indexvideo);
+            let nextNum = indexvideo + 1;
+            let videoBox = document.createElement("div");//创建一个标签		
+            videoBox.setAttribute("class","video-box");
+            videoBox.setAttribute("id","my-videoBox-" + nextNum);
+            videoBox.setAttribute("data-url",'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8');
+            videoBox.setAttribute("data-source","source-" + nextNum);
+            parentDom.appendChild(videoBox);
+            // parentDom.insertBefore(videoBox, thisDom);
+        }
+
+        // creat the video
+        function createdom(id, obj) {
+            var newVideo = document.createElement("div");//创建一个标签		
+            newVideo.setAttribute("class","position-absolute video-card");
+            newVideo.setAttribute("id","intro1");
+            newVideo.innerHTML = '<video id=' + id + ' class="video-js vjs-default-skin vjs-big-play-centered" muted controls preload="auto" playsinline="true"></video>';
+            obj.appendChild(newVideo);
+            player_hls = videojs(id);
+            player_hls.src({
+                src: hlsurl,
+                type: 'application/x-mpegURL',
+            });
+        }
+
+        function playhls(id) {
+            player_hls = videojs(id);
+            player_hls.src({
+                src: hlsurl,
+                type: 'application/x-mpegURL',
+            });
+            player_hls.play();
+            player_hls.on("playing", () => {
+                var videoDom = document.getElementById(id);
+                videoDom.style = 'z-index:5;'
+            });
+            player_hls.on("ended", () => {
+                // player_hls.play();
+            });
+        }
+
+        function throttle(fn, delay) {
+            let baseTime = 0;
+            return function () {
+                const currentTime = Date.now();
+                if (baseTime + delay < currentTime) {
+                    fn.apply(this, arguments);
+                    baseTime = currentTime;
+                }
+            }
+        }
+        
+    </script>
+
+</body>
+</html>
